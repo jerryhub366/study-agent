@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent 落地图鉴 · 真实案例</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>Agent 落地图鉴</h1>
+      <p class="subtitle">不讲概念，只看真实任务——AI Agent 究竟在帮哪些人做哪些事</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-card">
+          <span class="intro-icon">🤔</span>
+          <h3>Chatbot vs Agent</h3>
+          <p>聊天机器人帮你<strong>回答一个问题</strong>，Agent 帮你<strong>完成一项任务</strong>——可能需要搜索、写代码、发邮件、读文件，一气呵成。</p>
+        </div>
+        <div class="intro-card">
+          <span class="intro-icon">⚡</span>
+          <h3>真正的价值区</h3>
+          <p>当一项任务需要<strong>超过 5 个手动步骤</strong>、重复执行、或需要跨多个工具时，Agent 的收益才开始显现。</p>
+        </div>
+        <div class="intro-card">
+          <span class="intro-icon">🔍</span>
+          <h3>为什么体感不强？</h3>
+          <p>大多数人用 AI 的方式还停留在"一问一答"——这根本不是 Agent 的主战场。就像拿电钻敲钉子。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cases-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>真实落地案例</h2>
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="dev">软件开发</button>
+          <button class="filter-btn" data-filter="service">客户服务</button>
+          <button class="filter-btn" data-filter="legal">法律/专业</button>
+          <button class="filter-btn" data-filter="research">科学研究</button>
+          <button class="filter-btn" data-filter="content">内容/媒体</button>
+          <button class="filter-btn" data-filter="finance">金融</button>
+          <button class="filter-btn" data-filter="productivity">个人效率</button>
+          <button class="filter-btn" data-filter="ops">运营/电商</button>
+          <button class="filter-btn" data-filter="education">教育</button>
+        </div>
+      </div>
+
+      <div class="cases-grid" id="casesGrid">
+
+        <!-- Case 1 -->
+        <article class="case-card" data-category="dev">
+          <div class="case-header">
+            <span class="category-tag dev">软件开发</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>Claude Code / Cursor：理解整个代码库，自动修复与重构</h3>
+          <div class="case-meta">
+            <span class="org">Anthropic / Cursor</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>开发者手动阅读代码、定位 bug、切换文件、逐行修改，一个中等复杂的重构可能耗费半天。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 读取整个代码库上下文，理解依赖关系，一次性跨文件修改、生成测试、解释原因。Anthropic 内部约 <strong>50% 的代码提交</strong>已由 Claude Code 参与完成。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">代码读写</span>
+              <span class="tool-tag">终端执行</span>
+              <span class="tool-tag">多文件上下文</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 Shopify CEO Tobi Lütke 要求：任何新工作，先问 AI 能不能做，再决定要不要雇人。
+          </div>
+        </article>
+
+        <!-- Case 2 -->
+        <article class="case-card" data-category="dev">
+          <div class="case-header">
+            <span class="category-tag dev">软件开发</span>
+            <span class="level level-mid">门槛：中</span>
+          </div>
+          <h3>Devin：给一段任务描述，自主完成整个开发流程</h3>
+          <div class="case-meta">
+            <span class="org">Cognition AI</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>外包或初级工程师处理小型功能开发，沟通成本高，交付周期以天计。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Devin 自己开终端、查文档、写代码、跑测试、提 PR。能独立完成 GitHub Issues 中约 <strong>13.86%</strong> 的真实问题（SWE-bench 基准）。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">终端控制</span>
+              <span class="tool-tag">浏览器操作</span>
+              <span class="tool-tag">代码执行</span>
+              <span class="tool-tag">长程规划</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 代表了"软件工程 Agent"方向的天花板尝试，但对复杂任务仍需人工监督。
+          </div>
+        </article>
+
+        <!-- Case 3 -->
+        <article class="case-card" data-category="service">
+          <div class="case-header">
+            <span class="category-tag service">客户服务</span>
+            <span class="level level-high">门槛：高</span>
+          </div>
+          <h3>Klarna AI Agent：相当于 700 个全职客服</h3>
+          <div class="case-meta">
+            <span class="org">Klarna（瑞典金融科技）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>客服团队处理退款、订单查询、投诉，平均解决时间 <strong>11 分钟</strong>，高峰期排队严重。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>AI Agent 处理 <strong>2/3 的客服对话</strong>，平均解决时间降至 <strong>2 分钟</strong>，客户满意度与人工持平。上线首月相当于节省 4000 万美元年化成本。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">订单系统 API</span>
+              <span class="tool-tag">多语言理解</span>
+              <span class="tool-tag">情绪识别</span>
+              <span class="tool-tag">政策知识库</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 不是"替代"人工，而是让人工专注处理真正复杂的情绪性问题，简单问题全部自动化。
+          </div>
+        </article>
+
+        <!-- Case 4 -->
+        <article class="case-card" data-category="legal">
+          <div class="case-header">
+            <span class="category-tag legal">法律/专业服务</span>
+            <span class="level level-high">门槛：高</span>
+          </div>
+          <h3>Harvey AI：合同审阅与法律研究自动化</h3>
+          <div class="case-meta">
+            <span class="org">Harvey AI — 客户：Allen & Overy、PwC</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>初级律师花数小时逐条阅读合同，标注风险条款，查找类似案例，汇总成备忘录交给合伙人。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 读入合同，自动标注异常条款、对比行业标准、生成风险摘要，<strong>数小时变成数分钟</strong>。律师转向更高价值的谈判与策略工作。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">长文档理解</span>
+              <span class="tool-tag">向量检索</span>
+              <span class="tool-tag">结构化输出</span>
+              <span class="tool-tag">法律知识库</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 Allen & Overy 全球 3500+ 律师使用，处理合同数量的增速远超人力扩张速度。
+          </div>
+        </article>
+
+        <!-- Case 5 -->
+        <article class="case-card" data-category="research">
+          <div class="case-header">
+            <span class="category-tag research">科学研究</span>
+            <span class="level level-high">门槛：高</span>
+          </div>
+          <h3>AI Scientist：自主完成从假设到论文的全流程科研</h3>
+          <div class="case-meta">
+            <span class="org">Sakana AI（2024年）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>一篇机器学习论文从提出假设到实验完成平均需要 <strong>数月</strong>，涉及文献调研、实验设计、代码实现、结果分析、写作。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>AI Scientist 自主提出研究假设、设计实验、编写并运行代码、分析结果、撰写论文，<strong>完整流程约需数小时，成本约 15 美元/篇</strong>。生成的论文通过了模拟同行评审。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">代码执行</span>
+              <span class="tool-tag">文献检索</span>
+              <span class="tool-tag">实验管理</span>
+              <span class="tool-tag">自我反思循环</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 目前质量仍低于顶会水准，但代表了科研自动化的方向性突破，边际成本趋近于零。
+          </div>
+        </article>
+
+        <!-- Case 6 -->
+        <article class="case-card" data-category="research">
+          <div class="case-header">
+            <span class="category-tag research">科学研究</span>
+            <span class="level level-high">门槛：高</span>
+          </div>
+          <h3>Deep Research（Perplexity / OpenAI）：小时级深度调研变成分钟</h3>
+          <div class="case-meta">
+            <span class="org">Perplexity、OpenAI、Google</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>研究员或咨询顾问手动搜索、阅读、整理，一份行业调研报告需要 <strong>半天到数天</strong>。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 自主规划搜索路径，迭代检索数十个来源，交叉验证，生成结构化长报告，整个过程 <strong>5~20 分钟</strong>，并附来源引用。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">网络搜索</span>
+              <span class="tool-tag">多轮迭代</span>
+              <span class="tool-tag">来源验证</span>
+              <span class="tool-tag">长文生成</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 咨询行业最直接受冲击的场景之一——初级分析师的大量工作可被这类 Agent 替代。
+          </div>
+        </article>
+
+        <!-- Case 7 -->
+        <article class="case-card" data-category="content">
+          <div class="case-header">
+            <span class="category-tag content">内容/媒体</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>美联社：AI 自动生成财报新闻，记者专注深度报道</h3>
+          <div class="case-meta">
+            <span class="org">Associated Press（2014年至今）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>财报季期间记者疲于撰写数百家公司的常规财报稿件，格式雷同，价值低。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 读入财报数据，自动生成符合新闻格式的稿件，每季度生成<strong>数千篇</strong>报道。记者资源转向调查性报道和深度分析。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">结构化数据读取</span>
+              <span class="tool-tag">模板化写作</span>
+              <span class="tool-tag">批量生成</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 这是最早规模化落地的 AI 内容生产案例之一，早于大多数人讨论 AI 写作的时间点。
+          </div>
+        </article>
+
+        <!-- Case 8 -->
+        <article class="case-card" data-category="finance">
+          <div class="case-header">
+            <span class="category-tag finance">金融</span>
+            <span class="level level-mid">门槛：中</span>
+          </div>
+          <h3>摩根士丹利 AI@Morgan Stanley：10 万份研报变成实时问答</h3>
+          <div class="case-meta">
+            <span class="org">Morgan Stanley（2023年）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>财务顾问需要人工检索公司内部 10 万+ 份研究报告，找到相关内容耗时且靠记忆与经验。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>顾问直接用自然语言提问，Agent 实时检索向量化知识库，返回带引用的精准答案。知识获取时间从<strong>小时级降至秒级</strong>。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">RAG 检索</span>
+              <span class="tool-tag">向量数据库</span>
+              <span class="tool-tag">GPT-4</span>
+              <span class="tool-tag">权限控制</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 企业知识库 + RAG + Agent 是目前最成熟、最安全的企业级落地路径之一。
+          </div>
+        </article>
+
+        <!-- Case 9 -->
+        <article class="case-card" data-category="productivity">
+          <div class="case-header">
+            <span class="category-tag productivity">个人效率</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>邮件处理 Agent：分类、起草、归档、跟进，一气呵成</h3>
+          <div class="case-meta">
+            <span class="org">Superhuman / 自搭 n8n 工作流</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>每天花 1~2 小时处理邮件，分类、回复、标记跟进，高度重复且消耗专注力。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 自动分类优先级，对常见问题生成草稿，识别需要跟进的邮件并添加日历提醒，每天节省 <strong>30~60 分钟</strong>处理时间。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">邮件 API</span>
+              <span class="tool-tag">日历集成</span>
+              <span class="tool-tag">优先级判断</span>
+              <span class="tool-tag">草稿生成</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 门槛最低的高价值场景之一——用 n8n 或 Zapier + AI 自搭，不需要写代码。
+          </div>
+        </article>
+
+        <!-- Case 10 -->
+        <article class="case-card" data-category="productivity">
+          <div class="case-header">
+            <span class="category-tag productivity">个人效率</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>会议纪要 → 行动项 → 日历，全自动闭环</h3>
+          <div class="case-meta">
+            <span class="org">Otter.ai / Fireflies / 自搭</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>会议结束后手动整理纪要，提炼 action item，逐条通知相关人员，创建日历事件——经常被遗忘或拖延。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 实时转录会议，自动提炼决策和行动项，分配责任人，创建日历提醒，发送 Slack/邮件通知。会议结束 <strong>5 分钟内</strong>所有人都收到结构化摘要。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">语音转文字</span>
+              <span class="tool-tag">结构化提取</span>
+              <span class="tool-tag">日历 API</span>
+              <span class="tool-tag">消息推送</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 "工具链打通"是 Agent 价值的核心——单点 AI 不够，串联才能省掉所有中间步骤。
+          </div>
+        </article>
+
+        <!-- Case 11 -->
+        <article class="case-card" data-category="ops">
+          <div class="case-header">
+            <span class="category-tag ops">运营/电商</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>电商商品描述批量生成：从 SKU 列表到上架文案</h3>
+          <div class="case-meta">
+            <span class="org">Shopify 商家 / 各电商平台卖家</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>运营人员逐条撰写商品描述，一个 500 SKU 的店铺完整写完需要 <strong>数周</strong>，质量参差不齐。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>上传 SKU 表格（名称、规格、卖点），Agent 批量生成 SEO 友好的商品描述，<strong>数小时完成数百条</strong>，风格统一，支持多语言版本。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">批量处理</span>
+              <span class="tool-tag">风格一致性</span>
+              <span class="tool-tag">SEO 优化</span>
+              <span class="tool-tag">多语言</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 这是最容易看到 ROI 的场景——量大、重复、有格式要求，完美匹配 Agent 优势。
+          </div>
+        </article>
+
+        <!-- Case 12 -->
+        <article class="case-card" data-category="ops">
+          <div class="case-header">
+            <span class="category-tag ops">运营/电商</span>
+            <span class="level level-mid">门槛：中</span>
+          </div>
+          <h3>竞品监控 Agent：定期抓取、分析、生成摘要报告</h3>
+          <div class="case-meta">
+            <span class="org">各类 SaaS 公司运营团队（自搭）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>产品或运营同学手动巡查竞争对手官网、定价页、功能更新，信息零散，容易遗漏，难以持续。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 每周自动抓取竞品页面，对比上周变化，提取功能更新和定价调整，生成一页摘要报告推送到 Slack。全程无人工干预。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">网页抓取</span>
+              <span class="tool-tag">差异对比</span>
+              <span class="tool-tag">定时触发</span>
+              <span class="tool-tag">消息推送</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 "定时 + 多工具 + 自动推送"是最经典的 Agent 模式，可以用 n8n 在几小时内搭建。
+          </div>
+        </article>
+
+        <!-- Case 13 -->
+        <article class="case-card" data-category="education">
+          <div class="case-header">
+            <span class="category-tag education">教育</span>
+            <span class="level level-low">门槛：低</span>
+          </div>
+          <h3>Khan Academy Khanmigo：苏格拉底式 AI 辅导员</h3>
+          <div class="case-meta">
+            <span class="org">Khan Academy（2023年）</span>
+          </div>
+          <div class="case-body">
+            <div class="before-after">
+              <div class="before">
+                <label>以前</label>
+                <p>学生遇到不会的题，看答案或搜索，理解浅层，下次换个形式还是不会。</p>
+              </div>
+              <div class="after">
+                <label>现在</label>
+                <p>Agent 不直接给答案，用提问引导学生思考，根据回答调整讲解深度，发现知识漏洞后补充前置知识点。<strong>模拟一对一家教的体验</strong>，7×24 小时。</p>
+              </div>
+            </div>
+            <div class="tools-used">
+              <span class="tool-tag">知识图谱</span>
+              <span class="tool-tag">对话引导</span>
+              <span class="tool-tag">学习进度追踪</span>
+              <span class="tool-tag">个性化适配</span>
+            </div>
+          </div>
+          <div class="case-insight">
+            💡 "每个孩子都有私人家教"——这是 Bill Gates 认为 AI 在教育领域最重要的价值之一。
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- References Section -->
+  <section class="references-section">
+    <div class="container">
+      <h2>值得关注的人与项目</h2>
+      <p class="section-desc">这些是在 Agent 实践领域做出了真正贡献的声音——务实、有深度、信息密度高。</p>
+
+      <div class="refs-grid">
+
+        <div class="ref-group">
+          <h3>行业高手</h3>
+          <ul class="ref-list">
+            <li>
+              <strong>Simon Willison</strong>
+              <span>simonwillison.net</span>
+              <p>Django 联合创始人，每天记录 AI 实践，极度务实，不讲废话。英文世界最值得订阅的 AI 实践博客之一。</p>
+            </li>
+            <li>
+              <strong>Andrej Karpathy</strong>
+              <span>X @karpathy</span>
+              <p>前 Tesla AI 总监、OpenAI 创始成员。在 X 上持续分享 AI 工具使用心得，深入浅出。</p>
+            </li>
+            <li>
+              <strong>swyx（Shawn Wang）</strong>
+              <span>smol.ai / X @swyx</span>
+              <p>AI Engineer 社区创始人，整理了大量 Agent 工程实践，适合想动手的人。</p>
+            </li>
+            <li>
+              <strong>Harrison Chase</strong>
+              <span>LangChain CEO</span>
+              <p>LangChain 创始人，在 X 和博客上分享 Agent 架构与实际落地经验。</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>工具与项目</h3>
+          <ul class="ref-list">
+            <li>
+              <strong>n8n</strong>
+              <span>n8n.io — 开源工作流自动化</span>
+              <p>最适合非开发者搭建 Agent 工作流的工具，可视化连接各类 API，开源可自部署。</p>
+            </li>
+            <li>
+              <strong>Open Interpreter</strong>
+              <span>开源</span>
+              <p>让 AI 控制你的本地电脑——运行代码、操作文件、浏览网页。最直观感受"Agent 能做什么"的方式。</p>
+            </li>
+            <li>
+              <strong>Perplexity Deep Research</strong>
+              <span>perplexity.ai</span>
+              <p>目前最好用的 Research Agent 产品之一，做行业调研时可以直接用。</p>
+            </li>
+            <li>
+              <strong>Claude Code</strong>
+              <span>claude.ai/code</span>
+              <p>Anthropic 出品的代码 Agent，最能体现"Agent 与单纯聊天有何不同"的入门体验。</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>信息渠道</h3>
+          <ul class="ref-list">
+            <li>
+              <strong>Ben's Bites</strong>
+              <span>Newsletter（英文）</span>
+              <p>每日 AI 产品动态，案例丰富，信噪比高。比大多数 AI 科技媒体更务实。</p>
+            </li>
+            <li>
+              <strong>The Rundown AI</strong>
+              <span>Newsletter（英文）</span>
+              <p>面向普通从业者的 AI 应用介绍，更强调"怎么用"而不是"技术原理"。</p>
+            </li>
+            <li>
+              <strong>a16z AI 报告</strong>
+              <span>a16z.com/ai</span>
+              <p>风投视角整理的 AI 落地报告，有大量行业数据和企业案例，适合了解宏观图景。</p>
+            </li>
+            <li>
+              <strong>即刻 / 小红书</strong>
+              <span>中文社区</span>
+              <p>"AI 工具" "Claude 用法" "n8n 教程"等关键词，能找到很多真实实践者的分享，质量参差，需筛选。</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>这个项目持续更新真实案例——欢迎贡献你亲测有效的 Agent 用法。</p>
+      <p class="footer-note">内容优先于形式。能落地的案例，比任何概念性介绍都更有价值。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
