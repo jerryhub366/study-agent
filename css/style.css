@@ -248,6 +248,14 @@ header h1 {
   border: 1px solid var(--border);
 }
 
+.case-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+}
+
 /* Before/After */
 .case-body {
   display: flex;
@@ -381,6 +389,29 @@ header h1 {
   display: block;
   font-size: 0.75rem;
   color: var(--accent);
+  margin-bottom: 6px;
+  font-family: monospace;
+}
+
+.ref-link {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-family: monospace;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.ref-link:hover {
+  color: #c0c8ff;
+  text-decoration: underline;
+}
+
+.ref-link-plain {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
   margin-bottom: 6px;
   font-family: monospace;
 }
