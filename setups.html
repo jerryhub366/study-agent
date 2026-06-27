@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人助理搭建指南 · Agent 落地图鉴</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <nav class="site-nav">
+        <a href="index.html">真实案例</a>
+        <a href="setups.html" class="active">个人助理搭建</a>
+      </nav>
+      <h1>个人助理搭建指南</h1>
+      <p class="subtitle">从零成本到专业级——5 个梯度，找到适合你的 AI 个人助理方案</p>
+    </div>
+  </header>
+
+  <section class="insight-banner">
+    <div class="container">
+      <div class="insight-grid">
+        <div class="insight-item">
+          <span class="insight-label">核心判断</span>
+          <p>Claude Code Web = 云端沙箱，异步任务很好用；真正的全天候个人助理需要额外基础设施。</p>
+        </div>
+        <div class="insight-item">
+          <span class="insight-label">移动端现实</span>
+          <p>手机适合"下达任务、查看结果"，不适合"盯着 Agent 一步步操作"。把两者分开设计。</p>
+        </div>
+        <div class="insight-item">
+          <span class="insight-label">选择原则</span>
+          <p>从最简单的梯度开始，感受到瓶颈再升级——不要一开始就搭最复杂的方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="setups-section">
+    <div class="container">
+
+      <!-- Tier 1 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge">梯度 1</div>
+          <h2>零配置入门</h2>
+          <div class="tier-tags">
+            <span class="tier-tag cost">零成本</span>
+            <span class="tier-tag complexity-low">即开即用</span>
+            <span class="tier-tag mobile">移动友好</span>
+          </div>
+        </div>
+
+        <div class="tier-body">
+          <div class="tier-arch">
+            <strong>架构：</strong>Claude.ai App（iOS/Android）+ Projects 功能
+          </div>
+
+          <div class="tier-grid">
+            <div class="tier-col">
+              <h4>适合谁</h4>
+              <p>刚开始探索 AI 个人助理、还不确定自己需要什么的人。</p>
+            </div>
+            <div class="tier-col">
+              <h4>搭建复杂度</h4>
+              <p>下载 App → 创建 Project → 写入个人背景信息，10 分钟完成。</p>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>实际工作流</h4>
+            <div class="workflow-steps">
+              <div class="step">在 Project 里写入你的身份、工作背景、常用风格偏好</div>
+              <div class="step-arrow">↓ Claude 每次对话自动读取这些背景</div>
+              <div class="step">手机上随时发送灵感、任务、问题</div>
+              <div class="step-arrow">↓ 获得个性化回复，无需每次重新解释自己是谁</div>
+              <div class="step">把常用的 prompt 模板存入 Project，随时调取</div>
+            </div>
+          </div>
+
+          <div class="tier-limits">
+            <h4>瓶颈所在</h4>
+            <ul>
+              <li>无法主动触发：必须你先发消息，它才能响应</li>
+              <li>无法联动外部工具：不能自动发邮件、改文件、搜索网络</li>
+              <li>对话结束后无记忆延续（需要依赖 Project 的持久化信息）</li>
+            </ul>
+          </div>
+
+          <div class="tools-used">
+            <span class="tool-tag">Claude.ai App</span>
+            <span class="tool-tag">Projects 功能</span>
+            <span class="tool-tag">Anthropic 账号（免费或 Pro）</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge">梯度 2</div>
+          <h2>轻量云端 Agent</h2>
+          <div class="tier-tags">
+            <span class="tier-tag cost">低成本</span>
+            <span class="tier-tag complexity-low">几分钟设置</span>
+            <span class="tier-tag mobile">移动可操作</span>
+          </div>
+        </div>
+
+        <div class="tier-body">
+          <div class="tier-arch">
+            <strong>架构：</strong>Claude Code on the Web（浏览器/手机端）+ GitHub 仓库
+          </div>
+
+          <div class="tier-note">
+            这是你刚刚体验的方案。Claude 在云端维护一个沙箱环境，连接你的 GitHub 仓库，可以异步完成代码任务。
+          </div>
+
+          <div class="tier-grid">
+            <div class="tier-col">
+              <h4>适合谁</h4>
+              <p>有 GitHub 项目、需要异步改代码或构建内容的人。手机端描述任务，Agent 自主完成，你过会儿来看结果。</p>
+            </div>
+            <div class="tier-col">
+              <h4>搭建复杂度</h4>
+              <p>创建 GitHub 仓库 → 在 claude.ai/code 连接仓库 → 开始对话。无需本地安装任何东西。</p>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>实际工作流举例</h4>
+            <div class="workflow-steps">
+              <div class="step">手机打开 claude.ai，描述任务："帮我在这个文档站加一个按标签筛选的功能"</div>
+              <div class="step-arrow">↓ Agent 读取整个仓库，规划实现方案</div>
+              <div class="step">Agent 自主写代码、测试、提交到仓库（你无需盯着）</div>
+              <div class="step-arrow">↓ 任务完成后通知你</div>
+              <div class="step">手机上查看结果，满意则合并；不满意可以继续对话修改</div>
+            </div>
+          </div>
+
+          <div class="tier-limits">
+            <h4>瓶颈所在</h4>
+            <ul>
+              <li>沙箱权限有限：无法访问外部私有 API、无法持续运行后台进程</li>
+              <li>不适合需要长时间运行的任务（超时会中断）</li>
+              <li>手机端查看复杂 diff 体验较差，审查代码建议用桌面端</li>
+              <li>非代码类任务（如自动发邮件、管理日历）能力有限</li>
+            </ul>
+          </div>
+
+          <div class="tools-used">
+            <span class="tool-tag">claude.ai/code</span>
+            <span class="tool-tag">GitHub 仓库</span>
+            <span class="tool-tag">Claude Max 订阅（推荐）</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge">梯度 3</div>
+          <h2>自动化工作流</h2>
+          <div class="tier-tags">
+            <span class="tier-tag cost">低成本</span>
+            <span class="tier-tag complexity-mid">半天搭建</span>
+            <span class="tier-tag mobile">手机触达</span>
+          </div>
+        </div>
+
+        <div class="tier-body">
+          <div class="tier-arch">
+            <strong>架构：</strong>n8n（自托管）或 Zapier + Claude API → 飞书 / 微信 / 邮件推送
+          </div>
+
+          <div class="tier-grid">
+            <div class="tier-col">
+              <h4>适合谁</h4>
+              <p>想要"定时触发 + 跨应用联动"、不需要写代码的人。适合运营、产品、内容创作者。</p>
+            </div>
+            <div class="tier-col">
+              <h4>搭建复杂度</h4>
+              <p>注册 n8n cloud 或自部署 → 拖拽连接节点 → 配置 Anthropic API Key。核心流程半天内可完成。</p>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>实际工作流举例：每日简报助理</h4>
+            <div class="workflow-steps">
+              <div class="step">每天 8:00，n8n 定时触发</div>
+              <div class="step-arrow">↓ 抓取你订阅的 RSS / 行业网站更新</div>
+              <div class="step">Claude API 对内容进行筛选、摘要、按重要性排序</div>
+              <div class="step-arrow">↓ 生成一份个性化早报</div>
+              <div class="step">推送到你的飞书或微信（通过飞书机器人 Webhook）</div>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>另一个例子：邮件智能分类</h4>
+            <div class="workflow-steps">
+              <div class="step">新邮件到达 Gmail</div>
+              <div class="step-arrow">↓ n8n 触发，将邮件内容传给 Claude</div>
+              <div class="step">Claude 判断优先级、生成简短摘要</div>
+              <div class="step-arrow">↓ 结果推送到手机飞书通知</div>
+              <div class="step">重要邮件立刻提醒，普通邮件日报汇总</div>
+            </div>
+          </div>
+
+          <div class="tier-limits">
+            <h4>瓶颈所在</h4>
+            <ul>
+              <li>n8n 自托管需要一台服务器（但可以用最便宜的 VPS，约 30 元/月）</li>
+              <li>每次调用 Claude API 有费用（通常很低，几分钱到几毛钱/次）</li>
+              <li>复杂逻辑需要学习 n8n 节点配置，有一定学习曲线</li>
+            </ul>
+          </div>
+
+          <div class="tools-used">
+            <span class="tool-tag">n8n（推荐自托管）</span>
+            <span class="tool-tag">Anthropic API</span>
+            <span class="tool-tag">飞书 / 企业微信 Webhook</span>
+            <span class="tool-tag">Gmail / RSS 等数据源</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="tier-card featured">
+        <div class="tier-header">
+          <div class="tier-badge">梯度 4</div>
+          <h2>Mac Mini 常驻方案</h2>
+          <div class="tier-tags">
+            <span class="tier-tag cost">中等成本</span>
+            <span class="tier-tag complexity-mid">一天搭建</span>
+            <span class="tier-tag mobile">手机全控</span>
+            <span class="tier-tag featured-tag">推荐</span>
+          </div>
+        </div>
+
+        <div class="tier-body">
+          <div class="tier-arch">
+            <strong>架构：</strong>Mac Mini 24 小时运行 Claude Code CLI → Telegram / 飞书 Bot 作为手机交互入口
+          </div>
+
+          <div class="tier-note">
+            这是你提到的方向，也是目前个人用户搭建全天候 AI 助理最务实的路径。Mac Mini 功耗极低（约 6-10W 待机），7×24 静音运行，配合 Tailscale 在任何网络环境下都能从手机访问。
+          </div>
+
+          <div class="tier-grid">
+            <div class="tier-col">
+              <h4>适合谁</h4>
+              <p>对隐私有要求、想要最大灵活性、愿意花一天时间初始搭建的人。数据不出本地，模型调用可选 Anthropic API 或本地模型。</p>
+            </div>
+            <div class="tier-col">
+              <h4>搭建复杂度</h4>
+              <p>需要：购买 Mac Mini（M4 款约 4000 元起）→ 安装 Claude Code + 配置 API Key → 搭建 Telegram Bot → 配置 Tailscale 内网穿透。有一定技术门槛，但每步都有文档。</p>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>实际工作流举例</h4>
+            <div class="workflow-steps">
+              <div class="step">手机飞书/Telegram 发消息："把昨天会议录音整理成行动项，发给对应的人"</div>
+              <div class="step-arrow">↓ Mac Mini 上的 Agent 收到指令</div>
+              <div class="step">Agent 读取本地录音文件、转文字、提取行动项、起草邮件</div>
+              <div class="step-arrow">↓ 任务完成，结果回传到手机</div>
+              <div class="step">你在手机上确认，Agent 发送邮件</div>
+            </div>
+          </div>
+
+          <div class="arch-diagram">
+            <div class="arch-row">
+              <div class="arch-box phone">手机<br/><small>飞书 / Telegram</small></div>
+              <div class="arch-arrow">⟷ Tailscale</div>
+              <div class="arch-box mac">Mac Mini<br/><small>Claude Code CLI</small></div>
+              <div class="arch-arrow">⟷</div>
+              <div class="arch-box api">Anthropic API<br/><small>或本地模型</small></div>
+            </div>
+            <div class="arch-row">
+              <div class="arch-note">随时随地触达</div>
+              <div class="arch-spacer"></div>
+              <div class="arch-note">任务在本地执行，数据不出门</div>
+              <div class="arch-spacer"></div>
+              <div class="arch-note">按需调用，控制成本</div>
+            </div>
+          </div>
+
+          <div class="tier-limits">
+            <h4>需要注意</h4>
+            <ul>
+              <li>初始硬件成本（Mac Mini M4 约 4000 元），但电费极低</li>
+              <li>需要配置 Tailscale 或类似工具才能在外网访问到家里的 Mac Mini</li>
+              <li>Claude Code CLI 目前仍需要人类监督复杂任务，完全无人值守有风险</li>
+            </ul>
+          </div>
+
+          <div class="tools-used">
+            <span class="tool-tag">Mac Mini M4</span>
+            <span class="tool-tag">Claude Code CLI</span>
+            <span class="tool-tag">Anthropic API</span>
+            <span class="tool-tag">Tailscale（内网穿透）</span>
+            <span class="tool-tag">Telegram Bot API 或飞书机器人</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 5 -->
+      <div class="tier-card">
+        <div class="tier-header">
+          <div class="tier-badge">梯度 5</div>
+          <h2>云主机专业级</h2>
+          <div class="tier-tags">
+            <span class="tier-tag cost">按量付费</span>
+            <span class="tier-tag complexity-high">需要技术背景</span>
+            <span class="tier-tag mobile">任意入口</span>
+          </div>
+        </div>
+
+        <div class="tier-body">
+          <div class="tier-arch">
+            <strong>架构：</strong>VPS 云主机 + Claude Code / 多 Agent 编排 → 任意移动端入口
+          </div>
+
+          <div class="tier-grid">
+            <div class="tier-col">
+              <h4>适合谁</h4>
+              <p>开发者，需要 7×24 运行、多任务并发、或需要公网 IP 接收 Webhook 的场景。</p>
+            </div>
+            <div class="tier-col">
+              <h4>搭建复杂度</h4>
+              <p>购买 VPS（阿里云/腾讯云轻量版，2C4G 约 50-100 元/月）→ 部署 Agent 栈 → 配置接入层。需要 Linux 基础和 API 集成经验。</p>
+            </div>
+          </div>
+
+          <div class="workflow-box">
+            <h4>典型场景</h4>
+            <div class="workflow-steps">
+              <div class="step">公网 Webhook 接收 GitHub/Jira 事件（Mac Mini 方案做不到）</div>
+              <div class="step-arrow">↓</div>
+              <div class="step">多个 Agent 并发处理不同任务，互不干扰</div>
+              <div class="step-arrow">↓</div>
+              <div class="step">自定义 Web UI 或 App，不依赖第三方聊天工具</div>
+            </div>
+          </div>
+
+          <div class="tier-limits">
+            <h4>与梯度 4 的本质区别</h4>
+            <ul>
+              <li>有公网 IP，可以直接接收外部推送（Webhook）</li>
+              <li>资源可弹性扩展，不受单台机器限制</li>
+              <li>数据在云端，隐私保护不如本地方案</li>
+              <li>月度持续费用，需要评估 ROI</li>
+            </ul>
+          </div>
+
+          <div class="tools-used">
+            <span class="tool-tag">阿里云 / 腾讯云 轻量应用服务器</span>
+            <span class="tool-tag">Claude Code 或 LangGraph</span>
+            <span class="tool-tag">Anthropic API</span>
+            <span class="tool-tag">Docker（可选）</span>
+            <span class="tool-tag">任意 Bot 框架</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bonus: iOS Shortcuts -->
+      <div class="bonus-card">
+        <h3>加餐：iOS 捷径 + Claude API</h3>
+        <p class="bonus-desc">不需要任何服务器，纯手机端最轻量的"触发 Agent"方案</p>
+        <div class="tier-grid">
+          <div class="tier-col">
+            <h4>怎么做</h4>
+            <p>用 iOS 捷径（Shortcuts）构建工作流：语音输入 → 调用 Claude API → 结果读出来或存到备忘录。可以放到锁屏小组件，一键触发。</p>
+          </div>
+          <div class="tier-col">
+            <h4>适合场景</h4>
+            <p>快速灵感记录 + AI 整理、语音转待办、路上听到的内容快速提炼。真正做到"零摩擦"的移动端 AI 入口。</p>
+          </div>
+        </div>
+        <div class="tools-used">
+          <span class="tool-tag">iOS Shortcuts</span>
+          <span class="tool-tag">Anthropic API Key</span>
+          <span class="tool-tag">备忘录 / Notion / Obsidian</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="decision-section">
+    <div class="container">
+      <h2>怎么选？</h2>
+      <div class="decision-grid">
+        <div class="decision-card">
+          <div class="decision-q">我只是想试试 AI 能帮我干什么</div>
+          <div class="decision-a">→ 梯度 1：Claude.ai App + Projects</div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-q">我有代码项目，想让 AI 帮我改代码</div>
+          <div class="decision-a">→ 梯度 2：Claude Code on the Web</div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-q">我想自动处理邮件/信息，不想写代码</div>
+          <div class="decision-a">→ 梯度 3：n8n + Claude API</div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-q">我想要一个真正的个人助理，随时待命</div>
+          <div class="decision-a">→ 梯度 4：Mac Mini 常驻方案</div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-q">我是开发者，需要接 Webhook、多任务并发</div>
+          <div class="decision-a">→ 梯度 5：云主机专业级</div>
+        </div>
+        <div class="decision-card">
+          <div class="decision-q">我经常在路上，想要最轻量的手机入口</div>
+          <div class="decision-a">→ 加餐：iOS 捷径 + Claude API</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>这个项目持续更新真实案例——欢迎贡献你亲测有效的 Agent 用法。</p>
+      <p class="footer-note">内容优先于形式。能落地的案例，比任何概念性介绍都更有价值。</p>
+    </div>
+  </footer>
+
+</body>
+</html>
