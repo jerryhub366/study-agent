@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>实验项目 · Study Agent</title>
+  <meta name="description" content="用 AI Agent 辅助构建的实验项目 — 从想法到上线的真实记录" />
+  <meta name="theme-color" content="#0a0c10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .projects-header {
+      text-align: center;
+      padding: 80px 0 40px;
+    }
+    .projects-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .projects-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .project-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 8px;
+      transition: opacity var(--transition-fast);
+    }
+    .project-link:hover {
+      opacity: 0.8;
+    }
+    .project-link .arrow {
+      transition: transform var(--transition-fast);
+    }
+    .project-link:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 640px) {
+      .projects-header { padding: 60px 0 28px; }
+      .projects-header h1 { font-size: 1.5rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 22px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <span class="nav-logo">🤖 Agent 落地图鉴</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">案例</a>
+        <a href="timeline.html" class="nav-link">时间线</a>
+        <a href="courses.html" class="nav-link">课程</a>
+        <a href="projects.html" class="nav-link active">项目</a>
+        <a href="index.html#experts" class="nav-link">高手</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="projects-header">
+      <h1>实验项目</h1>
+      <p>用 AI Agent 辅助构建的实验项目 — 从想法到上线，全程 agent 协作完成</p>
+    </div>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-icon">🔥</div>
+        <div class="project-name">Grill Me</div>
+        <div class="project-desc">把你的想法丢进来，AI 会像一个犀利的投资人一样逐个追问，帮你在动手之前发现盲区和漏洞。</div>
+        <div class="project-tags">
+          <span class="project-tag">需求验证</span>
+          <span class="project-tag">AI 对话</span>
+          <span class="project-tag">独立开发</span>
+        </div>
+        <a class="project-link" href="https://grill.ladebuid.com" target="_blank" rel="noopener">
+          访问项目 <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">⚫</div>
+        <div class="project-name">Eva Go</div>
+        <div class="project-desc">围棋的变种玩法 — 每回合可以一次落 5 子，节奏更快、策略空间更大，适合想体验不一样围棋的人。</div>
+        <div class="project-tags">
+          <span class="project-tag">围棋变种</span>
+          <span class="project-tag">游戏</span>
+          <span class="project-tag">Agent 构建</span>
+        </div>
+        <a class="project-link" href="https://go.ladebuid.com" target="_blank" rel="noopener">
+          访问项目 <span class="arrow">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
