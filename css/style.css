@@ -71,6 +71,56 @@ body {
   padding: 0 28px;
 }
 
+/* ========== Nav ========== */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+
+.nav-logo {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.12);
+}
+
 /* ========== Header ========== */
 header {
   padding: 80px 0 56px;
@@ -129,34 +179,6 @@ header h1 {
   line-height: 1.7;
 }
 
-/* Stats bar */
-.stats-bar {
-  display: flex;
-  gap: 32px;
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.stat-number {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-
-.stat-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
 
 /* ========== Intro ========== */
 .intro {
@@ -429,6 +451,18 @@ header h1 {
 .category-tag.productivity { background: var(--cat-productivity-bg); color: var(--cat-productivity); }
 .category-tag.ops       { background: var(--cat-ops-bg);          color: var(--cat-ops); }
 .category-tag.education { background: var(--cat-education-bg);    color: var(--cat-education); }
+
+.new-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #0a0c10;
+  background: linear-gradient(135deg, #34d399, #6ee7b7);
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
 
 .level {
   font-size: 0.72rem;

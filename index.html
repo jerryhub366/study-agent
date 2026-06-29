@@ -13,24 +13,20 @@
 
   <div class="scroll-progress"></div>
 
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <span class="nav-logo">🤖 Agent 落地图鉴</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">卡片视图</a>
+        <a href="timeline.html" class="nav-link">时间线</a>
+      </div>
+    </div>
+  </nav>
+
   <header>
     <div class="header-inner">
       <h1>Agent 落地图鉴</h1>
       <p class="subtitle">不讲概念，只看真实任务——AI Agent 究竟在帮哪些人做哪些事</p>
-      <div class="stats-bar">
-        <div class="stat-item">
-          <span class="stat-number">21</span>
-          <span class="stat-label">真实案例</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">9</span>
-          <span class="stat-label">行业领域</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">2023–2025</span>
-          <span class="stat-label">时间跨度</span>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -65,16 +61,16 @@
           <input type="text" id="searchInput" class="search-input" placeholder="搜索案例… (按 / 聚焦)" />
         </div>
         <div class="filters" id="filters">
-          <button class="filter-btn active" data-filter="all">全部</button>
-          <button class="filter-btn" data-filter="dev">软件开发</button>
-          <button class="filter-btn" data-filter="service">客户服务</button>
-          <button class="filter-btn" data-filter="legal">法律/专业</button>
-          <button class="filter-btn" data-filter="research">科学研究</button>
-          <button class="filter-btn" data-filter="content">内容/媒体</button>
-          <button class="filter-btn" data-filter="finance">金融</button>
-          <button class="filter-btn" data-filter="productivity">个人效率</button>
-          <button class="filter-btn" data-filter="ops">运营/电商</button>
-          <button class="filter-btn" data-filter="education">教育</button>
+          <button class="filter-btn active" data-filter="all">全部 <span class="filter-count">21</span></button>
+          <button class="filter-btn" data-filter="dev">软件开发 <span class="filter-count">6</span></button>
+          <button class="filter-btn" data-filter="service">客户服务 <span class="filter-count">3</span></button>
+          <button class="filter-btn" data-filter="legal">法律/专业 <span class="filter-count">1</span></button>
+          <button class="filter-btn" data-filter="research">科学研究 <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="content">内容/媒体 <span class="filter-count">1</span></button>
+          <button class="filter-btn" data-filter="finance">金融 <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="productivity">个人效率 <span class="filter-count">3</span></button>
+          <button class="filter-btn" data-filter="ops">运营/电商 <span class="filter-count">3</span></button>
+          <button class="filter-btn" data-filter="education">教育 <span class="filter-count">1</span></button>
         </div>
       </div>
 
@@ -522,7 +518,7 @@
         </article>
 
         <!-- Case 14 -->
-        <article class="case-card" data-category="dev">
+        <article class="case-card" data-new="true" data-category="dev">
           <div class="case-header">
             <span class="category-tag dev">软件开发</span>
             <span class="level level-low">门槛：低</span>
@@ -556,7 +552,7 @@
         </article>
 
         <!-- Case 15 -->
-        <article class="case-card" data-category="service">
+        <article class="case-card" data-new="true" data-category="service">
           <div class="case-header">
             <span class="category-tag service">客户服务</span>
             <span class="level level-high">门槛：高</span>
@@ -590,7 +586,7 @@
         </article>
 
         <!-- Case 16 -->
-        <article class="case-card" data-category="service">
+        <article class="case-card" data-new="true" data-category="service">
           <div class="case-header">
             <span class="category-tag service">客户服务</span>
             <span class="level level-high">门槛：高</span>
@@ -624,7 +620,7 @@
         </article>
 
         <!-- Case 17 -->
-        <article class="case-card" data-category="dev">
+        <article class="case-card" data-new="true" data-category="dev">
           <div class="case-header">
             <span class="category-tag dev">软件开发</span>
             <span class="level level-low">门槛：低</span>
@@ -658,7 +654,7 @@
         </article>
 
         <!-- Case 18 -->
-        <article class="case-card" data-category="dev">
+        <article class="case-card" data-new="true" data-category="dev">
           <div class="case-header">
             <span class="category-tag dev">软件开发</span>
             <span class="level level-mid">门槛：中</span>
@@ -692,7 +688,7 @@
         </article>
 
         <!-- Case 19 -->
-        <article class="case-card" data-category="productivity">
+        <article class="case-card" data-new="true" data-category="productivity">
           <div class="case-header">
             <span class="category-tag productivity">个人效率</span>
             <span class="level level-mid">门槛：中</span>
@@ -726,7 +722,7 @@
         </article>
 
         <!-- Case 20 -->
-        <article class="case-card" data-category="finance">
+        <article class="case-card" data-new="true" data-category="finance">
           <div class="case-header">
             <span class="category-tag finance">金融</span>
             <span class="level level-high">门槛：高</span>
@@ -760,7 +756,7 @@
         </article>
 
         <!-- Case 21 -->
-        <article class="case-card" data-category="ops">
+        <article class="case-card" data-new="true" data-category="ops">
           <div class="case-header">
             <span class="category-tag ops">运营/电商</span>
             <span class="level level-low">门槛：低</span>

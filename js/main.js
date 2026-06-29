@@ -100,9 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
     cards.forEach(function (card) { observer.observe(card); });
 
     document.querySelectorAll('.ref-list li').forEach(function (li) { observer.observe(li); });
+    document.querySelectorAll('.timeline-item').forEach(function (item) { observer.observe(item); });
   } else {
     cards.forEach(function (card) { card.classList.add('revealed'); });
     document.querySelectorAll('.ref-list li').forEach(function (li) { li.classList.add('revealed'); });
+    document.querySelectorAll('.timeline-item').forEach(function (item) { item.classList.add('revealed'); });
   }
 
   // Scroll progress bar
@@ -126,6 +128,14 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // NEW badges
+  document.querySelectorAll('.case-card[data-new="true"] .case-header').forEach(function (header) {
+    var badge = document.createElement('span');
+    badge.className = 'new-badge';
+    badge.textContent = 'NEW';
+    header.insertBefore(badge, header.querySelector('.level'));
+  });
 
   // Keyboard shortcuts
   document.addEventListener('keydown', function (e) {
