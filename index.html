@@ -4,14 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agent 落地图鉴 · 真实案例</title>
+  <meta name="description" content="AI Agent 真实落地案例图鉴 — 覆盖软件开发、客户服务、金融、科研等 21 个成熟案例" />
+  <meta name="theme-color" content="#0a0c10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+  <div class="scroll-progress"></div>
 
   <header>
     <div class="header-inner">
       <h1>Agent 落地图鉴</h1>
       <p class="subtitle">不讲概念，只看真实任务——AI Agent 究竟在帮哪些人做哪些事</p>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number">21</span>
+          <span class="stat-label">真实案例</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">9</span>
+          <span class="stat-label">行业领域</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2023–2025</span>
+          <span class="stat-label">时间跨度</span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -41,6 +60,10 @@
     <div class="container">
       <div class="section-header">
         <h2>真实落地案例</h2>
+        <div class="search-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="搜索案例… (按 / 聚焦)" />
+        </div>
         <div class="filters" id="filters">
           <button class="filter-btn active" data-filter="all">全部</button>
           <button class="filter-btn" data-filter="dev">软件开发</button>
@@ -55,6 +78,7 @@
         </div>
       </div>
 
+      <div class="results-count" id="resultsCount"></div>
       <div class="cases-grid" id="casesGrid">
 
         <!-- Case 1 -->
@@ -865,10 +889,16 @@
 
   <footer>
     <div class="container">
-      <p>这个项目持续更新真实案例——欢迎贡献你亲测有效的 Agent 用法。</p>
-      <p class="footer-note">内容优先于形式。能落地的案例，比任何概念性介绍都更有价值。</p>
+      <p>持续更新真实案例 · <a href="https://github.com/jerryhub366/study-agent" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">GitHub</a></p>
+      <p class="footer-note">能落地的案例，比任何概念性介绍都更有价值。</p>
     </div>
   </footer>
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="js/main.js"></script>
 </body>
