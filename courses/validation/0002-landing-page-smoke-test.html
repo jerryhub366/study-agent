@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 02 — 落地页烟雾测试：不写代码就能验证付费意愿</title>
+  <link rel="stylesheet" href="lesson-style.css">
+</head>
+<body>
+
+<h1>Lesson 02 — 落地页烟雾测试</h1>
+<p class="lesson-meta">主题：用一个页面测试陌生人愿不愿意掏钱 · 预计阅读 10 分钟 · 含 3 道练习</p>
+
+<p>上节课你学会了怎么跟人聊天挖需求。但对话有两个局限：一是样本小（你能聊几个人？），二是<strong>说愿意付钱和真的付钱是两回事</strong>。</p>
+
+<p>这节课教你一个更硬的验证手段：<strong>落地页烟雾测试（Smoke Test）</strong>——做一个假的产品页面，看陌生人会不会掏钱。</p>
+
+<blockquote>
+  「Dropbox 在写第一行代码之前，只做了一个演示视频的落地页。Buffer 从想法到付费用户只用了七周——起点也是一个落地页。」<br>
+  — <a href="https://founderfaqs.com/blogs/how-to-run-a-smoke-test-landing-page-to-prove-demand" target="_blank">FounderFAQs</a>
+</blockquote>
+
+<h2>烟雾测试的逻辑</h2>
+
+<div class="card">
+  <h3>核心思路</h3>
+  <p>创建一个看起来像真产品的页面，描述你要解决的问题和方案，放上行动按钮（注册 / 预付费 / 加入等候名单）。然后把陌生人引过来，看转化率。</p>
+  <p><strong>产品不需要存在。</strong>你测的不是产品，是需求。</p>
+</div>
+
+<h2>落地页必须包含的 6 个元素</h2>
+
+<p>以一个虚构案例说明——假设你想做一个「帮小店主自动生成周报给房东」的工具：</p>
+
+<div class="card">
+  <h3>① 标题：一句话说清你解决什么问题</h3>
+  <p>例：「小店主的周报，3 分钟自动生成」</p>
+  <p>不要写你的技术方案（"基于 AI 的报告生成器"），写用户看得懂的结果。</p>
+</div>
+
+<div class="card">
+  <h3>② 副标题：怎么做到的</h3>
+  <p>例：「连接你的收银系统，每周自动生成经营数据摘要，一键发送给房东」</p>
+</div>
+
+<div class="card">
+  <h3>③ 3-4 个核心价值点</h3>
+  <p>用户能获得的具体好处，不是功能列表。</p>
+</div>
+
+<div class="card">
+  <h3>④ 视觉呈现</h3>
+  <p>产品截图、模拟界面或演示视频。不需要真的能用，Figma 出一张图就够。</p>
+</div>
+
+<div class="card">
+  <h3>⑤ 行动按钮（最关键）</h3>
+  <p>这是测试的核心。按钮的"重量"决定了你能获得的信号强度：</p>
+  <table style="width:100%; border-collapse:collapse; font-size:0.92rem; margin-top:0.6rem;">
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;"><strong>信号强度</strong></td>
+      <td style="padding:0.5rem;"><strong>按钮类型</strong></td>
+      <td style="padding:0.5rem;"><strong>说明</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">⭐</td>
+      <td style="padding:0.5rem;">邮箱注册</td>
+      <td style="padding:0.5rem;">最低门槛，只能说明"有人好奇"</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">⭐⭐⭐</td>
+      <td style="padding:0.5rem;">填写详细问卷</td>
+      <td style="padding:0.5rem;">愿意花 5 分钟填表 = 真的有痛点</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">⭐⭐⭐⭐</td>
+      <td style="padding:0.5rem;">预约演示 / 留电话</td>
+      <td style="padding:0.5rem;">愿意被打扰 = 需求很真</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem;">⭐⭐⭐⭐⭐</td>
+      <td style="padding:0.5rem;">预付费 / 输入信用卡</td>
+      <td style="padding:0.5rem;">愿意掏钱 = 终极验证</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>⑥ 免责声明</h3>
+  <p>「产品正在开发中，加入等候名单可第一时间体验」——诚实地告知状态。如果收了预付费，承诺不满意可退。</p>
+</div>
+
+<h2>怎么导流量</h2>
+
+<p>页面做好了没人看等于白做。几种低成本导流方式：</p>
+
+<div class="compare">
+  <div class="compare-good">
+    <h4>免费渠道</h4>
+    <p><strong>社区发帖</strong>——在目标用户聚集的地方（V2EX、小红书、Reddit、相关微信群）分享你发现的问题，附上链接</p>
+    <p><strong>朋友转发</strong>——但注意：朋友的注册不算数，只有陌生人才算有效信号</p>
+  </div>
+  <div class="compare-bad">
+    <h4>付费渠道</h4>
+    <p><strong>Google / Facebook 广告</strong>——花 ¥200-500 买 200+ 次点击就能出数据</p>
+    <p><strong>优点</strong>：流量是完全陌生的冷流量，数据最干净</p>
+    <p><strong>缺点</strong>：要花钱，且需要基本的投放知识</p>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <strong>关键数字：</strong>你需要至少 <strong>200-300 个独立访客</strong>才能得到有统计意义的转化率数据。少于这个数，随机波动太大，不能下结论。
+</div>
+
+<h2>转化率多少算验证通过？</h2>
+
+<table style="width:100%; border-collapse:collapse; font-size:0.92rem;">
+  <tr style="border-bottom:2px solid var(--color-border);">
+    <td style="padding:0.6rem;"><strong>转化率</strong></td>
+    <td style="padding:0.6rem;"><strong>判断</strong></td>
+    <td style="padding:0.6rem;"><strong>下一步</strong></td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.6rem;">&lt; 3%</td>
+    <td style="padding:0.6rem; color:var(--color-danger);">需求很弱或表达不对</td>
+    <td style="padding:0.6rem;">换文案再测一轮，或放弃这个方向</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.6rem;">3-5%</td>
+    <td style="padding:0.6rem; color:var(--color-warning);">有兴趣但不强烈</td>
+    <td style="padding:0.6rem;">优化文案、换受众渠道，再测一轮</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.6rem;">6-10%</td>
+    <td style="padding:0.6rem; color:var(--color-success);">前景不错</td>
+    <td style="padding:0.6rem;">开始做最小 MVP</td>
+  </tr>
+  <tr>
+    <td style="padding:0.6rem;">&gt; 10%</td>
+    <td style="padding:0.6rem; color:var(--color-success); font-weight:600;">强需求信号</td>
+    <td style="padding:0.6rem;">立即行动，预售或开发</td>
+  </tr>
+</table>
+
+<p style="margin-top:0.8rem; font-size:0.9rem; color:var(--color-muted);">注意：如果行动按钮是"预付费"，2-3% 就已经是很强的信号了——毕竟是真金白银。以上基准主要针对邮箱注册类。<br>数据来源：<a href="https://founderfaqs.com/blogs/how-to-run-a-smoke-test-landing-page-to-prove-demand" target="_blank">FounderFAQs</a>, <a href="https://cxl.com/blog/smoke-test/" target="_blank">CXL</a></p>
+
+<h2>推荐工具（3 小时内搞定）</h2>
+
+<ul>
+  <li><strong><a href="https://carrd.co" target="_blank">Carrd</a></strong>——最快的单页面建站工具，免费版够用，Pro 版 $19/年</li>
+  <li><strong><a href="https://www.launchrock.com" target="_blank">Launchrock</a></strong>——专为预发布页面设计，自带邮箱收集</li>
+  <li><strong>直接手写 HTML</strong>——你是开发者，半小时就能搞定一个漂亮的静态页，部署到 Vercel</li>
+</ul>
+
+<h2>一个完整的杀死标准</h2>
+
+<div class="highlight-box">
+  <strong>4 周规则（来自 <a href="https://www.indiehackers.com/post/how-to-test-willingness-to-pay-advice-needed-482921b628" target="_blank">Indie Hackers 社区</a>）：</strong><br><br>
+  如果你在 4 周内无法手动成交 3 个付费用户，问题不在于你的产品还没自动化——问题在于需求本身不存在。<br><br>
+  这条规则帮你设定一个明确的<strong>止损点</strong>，不至于在一个没人要的东西上耗三个月。
+</div>
+
+<h2>练习时间</h2>
+
+<div class="quiz" id="q1">
+  <p class="quiz-question">1. 你做了一个落地页，分享到三个微信群，第二天有 15 个朋友注册了邮箱。这说明什么？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q1',false,'15 个注册听起来不错，但这些人认识你，可能只是给面子。你需要的是陌生人的信号。')">需求初步得到验证，可以继续推进</li>
+    <li onclick="checkAnswer(this,'q1',true,'朋友的注册受关系影响太大，不能作为有效验证。你需要 200+ 陌生访客的数据。')">几乎没有验证价值——朋友注册不算数</li>
+    <li onclick="checkAnswer(this,'q1',false,'3 个群不是问题，问题是流量来源。同样 3 个群，如果都是你不认识的目标用户群体，就有效得多。')">说明推广渠道不够，需要更多群</li>
+    <li onclick="checkAnswer(this,'q1',false,'15 人确实少，但核心问题不是量，而是这些人跟你有社交关系，数据天然偏高。')">样本太小，需要至少一百个注册</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q2">
+  <p class="quiz-question">2. 以下哪种行动按钮能给你最强的付费意愿信号？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q2',false,'邮箱注册的成本几乎为零，只能说明「有人好奇」，离「愿意付费」还很远。')">「输入邮箱，抢先体验」</li>
+    <li onclick="checkAnswer(this,'q2',false,'关注公众号比邮箱稍强一点，但仍然是零成本行为，信号较弱。')">「关注公众号获取更新」</li>
+    <li onclick="checkAnswer(this,'q2',true,'信用卡是最强信号——用户不仅认可你的方案，还愿意为此承担真实的经济承诺。即使写「不满意退款」，输入卡号这个动作本身就是极强的筛选。')">「预付 ¥99，不满意全额退款」</li>
+    <li onclick="checkAnswer(this,'q2',false,'点赞和分享是社交行为，不是购买行为。「我觉得这个有意思」不等于「我愿意花钱用」。')">「觉得有用？分享给朋友」</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q3">
+  <p class="quiz-question">3. 你的落地页获得了 400 个独立访客，12 个人留了邮箱（3% 转化率）。你应该？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q3',false,'3% 是弱信号区。直接开发有很大概率做出没人付费的产品。至少先优化文案或换受众再验证一轮。')">开始开发 MVP，数据已经够了</li>
+    <li onclick="checkAnswer(this,'q3',true,'3% 在邮箱注册这个门槛下属于「有兴趣但不强烈」。正确做法是先优化——换标题文案、换受众渠道、甚至换价值主张，再跑一轮看能否提升。')">先优化文案或换受众渠道，再测一轮</li>
+    <li onclick="checkAnswer(this,'q3',false,'400 访客已经足够得出初步结论了。问题不在样本量，在于转化率偏低。')">样本量不够，继续导流到一千人</li>
+    <li onclick="checkAnswer(this,'q3',false,'3% 不意味着方向完全错误，可能只是表达方式不对。在放弃之前至少优化一轮。')">放弃这个方向，换一个想法</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h2>你的下一步行动</h2>
+
+<div class="highlight-box">
+  <strong>实操任务：</strong>为你的下一个产品想法（任何想法都行）做一个烟雾测试落地页。<br><br>
+  <strong>要求：</strong><br>
+  ① 包含上述 6 个元素（标题、副标题、价值点、视觉、行动按钮、免责声明）<br>
+  ② 行动按钮至少是「留邮箱」级别，最好是「预付费」<br>
+  ③ 部署上线（Carrd / Vercel / 任何方式）<br>
+  ④ 找到一个目标用户聚集的社区，发一个帖子把陌生流量引过去<br>
+  ⑤ 等 200+ 访客后，记录转化率，带回来我们一起分析<br><br>
+  <strong>时间预算：做页面 3 小时，等数据 1-2 周。</strong>
+</div>
+
+<h2>推荐阅读</h2>
+<p><a href="https://founderfaqs.com/blogs/how-to-run-a-smoke-test-landing-page-to-prove-demand" target="_blank">How to Run a Smoke Test Landing Page to Prove Demand — FounderFAQs</a>——本课核心参考，包含完整的页面结构、导流策略和判断标准。</p>
+<p><a href="https://www.indiehackers.com/post/how-i-validated-my-micro-saas-idea-quickly-and-you-can-too-53decf45b9" target="_blank">How I Validated My Micro-SaaS Idea Quickly — David Wilson</a>——一个独立开发者的完整验证实录，2 天拿到 47 个注册和 3 个付费意向。</p>
+
+<div class="lesson-footer">
+  <p>有任何不清楚的地方，随时问我——我是你的老师，不只是一个课件。</p>
+  <p><a href="0001-mom-test-core.html">← 上一课：妈妈测试法</a> · <a href="0003-concierge-mvp.html">→ 下一课：礼宾式 MVP</a></p>
+</div>
+
+<script>
+function checkAnswer(el, quizId, correct, explanation) {
+  const quiz = document.getElementById(quizId);
+  const options = quiz.querySelectorAll('.quiz-options li');
+  const feedback = quiz.querySelector('.quiz-feedback');
+  if (quiz.dataset.answered) return;
+  quiz.dataset.answered = 'true';
+  options.forEach(li => { li.style.cursor = 'default'; });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    options.forEach(li => {
+      if (li !== el && li.onclick.toString().includes('true,')) {
+        li.classList.add('correct');
+      }
+    });
+  }
+  feedback.textContent = explanation;
+  feedback.style.background = correct ? '#edf7ed' : '#fdf0ed';
+  feedback.style.color = correct ? '#1e7e34' : '#a02020';
+  feedback.classList.add('show');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 04 — 预售验证：产品没做出来就先收钱</title>
+  <link rel="stylesheet" href="lesson-style.css">
+</head>
+<body>
+
+<h1>Lesson 04 — 预售验证</h1>
+<p class="lesson-meta">主题：用真金白银测试付费意愿 · 预计阅读 9 分钟 · 含 3 道练习</p>
+
+<p>到目前为止你学了三种验证方法：聊天挖需求（妈妈测试法）、页面测兴趣（落地页烟雾测试）、手动做服务（礼宾式 MVP）。</p>
+
+<p>但所有这些都还差最后一块拼图：<strong>有人真的掏钱了吗？</strong></p>
+
+<p>这节课教你最硬核的验证手段：<strong>预售（Pre-sell）</strong>——在产品做出来之前就收钱。</p>
+
+<blockquote>
+  「人们说的和人们做的是两个世界。唯一能证明付费意愿的，就是让他们真的付费。」<br>
+  — <a href="https://www.indiehackers.com/post/how-to-test-willingness-to-pay-advice-needed-482921b628" target="_blank">Indie Hackers 社区讨论</a>
+</blockquote>
+
+<h2>预售的逻辑</h2>
+
+<div class="card">
+  <h3>为什么预售是终极验证</h3>
+  <p>信号强度排序：</p>
+  <p style="font-size:0.92rem; margin-top:0.5rem;">
+    「这想法不错」(0分) → 留了邮箱 (1分) → 填了问卷 (2分) → 预约了演示 (3分) → <strong style="color:var(--color-accent);">掏了钱 (10分)</strong>
+  </p>
+  <p>所有其他信号都可以是礼貌、好奇、或一时兴起。只有掏钱这个动作无法伪装。</p>
+</div>
+
+<h2>三种预售模式</h2>
+
+<div class="card">
+  <h3>模式一：「假门」收费按钮</h3>
+  <p><strong>怎么做：</strong>在落地页放上真实的定价和「立即购买」按钮。用户点击后，跳转到一个页面说：「感谢你的兴趣！产品正在开发中，我们会在上线时第一时间通知你。」</p>
+  <p><strong>你获得的数据：</strong>有多少人看到价格后仍然点击了购买——这是不用真收钱就能测到的付费意愿。</p>
+  <p><strong>优点：</strong>零成本，零风险。<br><strong>缺点：</strong>点击≠真的会付钱，信号比真收费弱。</p>
+</div>
+
+<div class="card">
+  <h3>模式二：预付费 + 承诺退款</h3>
+  <p><strong>怎么做：</strong>收真钱。通过 Gumroad、Stripe、或微信收款码收取预售款。明确承诺：「如果产品不满意或未能按期交付，全额退款。」</p>
+  <p><strong>你获得的数据：</strong>有多少陌生人愿意在产品不存在时就付钱——这是最强的需求信号。</p>
+  <p><strong>优点：</strong>终极验证，没有比这更真的了。<br><strong>缺点：</strong>如果最终不做，需要逐一退款。心理压力大。</p>
+</div>
+
+<div class="card">
+  <h3>模式三：众筹式预售</h3>
+  <p><strong>怎么做：</strong>设定一个目标（如「30 人预购即开工」），在社区或落地页公开这个目标。</p>
+  <p><strong>你获得的数据：</strong>能否在限定时间内凑齐目标人数。达标就做，不达标就退款，干净利落。</p>
+  <p><strong>优点：</strong>有明确的 Go/No-Go 标准。<br><strong>缺点：</strong>需要一定的推广能力才能触达足够多的人。</p>
+</div>
+
+<h2>实操步骤：从零到第一笔预售</h2>
+
+<div class="card">
+  <h3>Step 1：确定定价</h3>
+  <p>不要猜。用前几课的方法：</p>
+  <ul>
+    <li>妈妈测试法中问到的「你之前为类似问题花了多少钱」= 价格锚点</li>
+    <li>竞品的定价 = 市场参考</li>
+    <li>预售可以给折扣（早鸟价 7 折），但不要免费——免费的预售毫无验证价值</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Step 2：搭建收款页面</h3>
+  <p>推荐工具（按简单程度排序）：</p>
+  <table style="width:100%; border-collapse:collapse; font-size:0.92rem; margin-top:0.4rem;">
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;"><strong>工具</strong></td>
+      <td style="padding:0.4rem;"><strong>适合场景</strong></td>
+      <td style="padding:0.4rem;"><strong>费用</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">微信收款码</td>
+      <td style="padding:0.4rem;">国内用户，最快上手</td>
+      <td style="padding:0.4rem;">免费</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">Gumroad</td>
+      <td style="padding:0.4rem;">海外用户，支持预订功能</td>
+      <td style="padding:0.4rem;">10% 佣金</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">Stripe Payment Links</td>
+      <td style="padding:0.4rem;">海外用户，更专业</td>
+      <td style="padding:0.4rem;">2.9% + ¥2/笔</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem;">LemonSqueezy</td>
+      <td style="padding:0.4rem;">数字产品，含税务处理</td>
+      <td style="padding:0.4rem;">5% + ¥3.5/笔</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Step 3：直接销售</h3>
+  <p>不要只把链接扔到社区里等人来。<strong>主动找人</strong>：</p>
+  <ul>
+    <li>从你妈妈测试法聊过的人里，找到表达过强烈痛点的</li>
+    <li>从落地页注册列表里，找到填了详细问卷的</li>
+    <li>给他们发一对一的消息，说明你在做什么、定价多少、为什么现在预售</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Step 4：判断结果</h3>
+  <table style="width:100%; border-collapse:collapse; font-size:0.92rem; margin-top:0.4rem;">
+    <tr style="border-bottom:2px solid var(--color-border);">
+      <td style="padding:0.5rem;"><strong>结果</strong></td>
+      <td style="padding:0.5rem;"><strong>判断</strong></td>
+      <td style="padding:0.5rem;"><strong>下一步</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">4 周内 ≥ 3 人付费</td>
+      <td style="padding:0.5rem; color:var(--color-success); font-weight:600;">绿灯，开始做</td>
+      <td style="padding:0.5rem;">开发 MVP，这些人就是你的第一批用户</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">4 周内 1-2 人付费</td>
+      <td style="padding:0.5rem; color:var(--color-warning);">黄灯</td>
+      <td style="padding:0.5rem;">深入了解付费者为什么买、没买的为什么没买</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem;">4 周内 0 人付费</td>
+      <td style="padding:0.5rem; color:var(--color-danger);">红灯，止损</td>
+      <td style="padding:0.5rem;">换方向或大幅调整价值主张</td>
+    </tr>
+  </table>
+</div>
+
+<h2>「收了钱不做怎么办？」</h2>
+
+<div class="highlight-box">
+  <strong>这是独立开发者最常见的心理障碍。</strong>答案很简单：<br><br>
+  <strong>1. 预售页面上写清楚</strong>——「产品正在开发中，预计 X 月上线。如未能按期交付或您不满意，全额退款，无需理由。」<br><br>
+  <strong>2. 如果最终决定不做</strong>——给每个人退款 + 发一条真诚的消息说明原因。没人会因此恨你。大多数人甚至会尊重你的诚实。<br><br>
+  <strong>3. 心理换框</strong>——你不是在「骗钱」，你是在邀请一群人用真金白银投票：「这个东西是否值得存在于世界上？」这对双方都有价值。
+</div>
+
+<h2>练习时间</h2>
+
+<div class="quiz" id="q1">
+  <p class="quiz-question">1. 你做了一个「帮跨境电商卖家自动翻译产品描述」的落地页，收到了 50 个邮箱注册。接下来你应该？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q1',false,'50个邮箱注册只是「有人好奇」的信号。直接开发很可能做出没人付费的产品。')">开始开发 MVP，50 个注册说明有需求</li>
+    <li onclick="checkAnswer(this,'q1',true,'正确！邮箱注册只能说明兴趣，不能说明付费意愿。下一步应该向这50个人发预售邮件，看谁愿意掏钱。')">给这 50 个人发邮件，提供早鸟价预售</li>
+    <li onclick="checkAnswer(this,'q1',false,'更多注册不会改变信号的本质。你需要的是更高质量的信号（付费），不是更多的低质量信号（注册）。')">继续推广，争取注册量到 200 人</li>
+    <li onclick="checkAnswer(this,'q1',false,'问卷比邮箱注册稍强，但仍然是观点而非行动。直接测试付费意愿更高效。')">做一份详细的用户调研问卷</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q2">
+  <p class="quiz-question">2. 你决定用「假门」方式测试。落地页标价 ¥199/月，200 个访客中有 8 人点击了「立即购买」按钮（4% 点击率）。这说明什么？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q2',false,'4%的假门点击率已经是不错的信号了，但因为没有真收钱，实际转化率通常会打折。不建议直接全力开发。')">需求很强，可以全力开发了</li>
+    <li onclick="checkAnswer(this,'q2',true,'点击购买按钮是比邮箱注册更强的信号，但因为不需要真的付钱，实际付费率通常只有点击率的30-50%。4%的点击率意味着大概1.5-2%的真实付费率——处于「值得继续探索」的区间。下一步应该升级到真收费来确认。')">信号积极但不确定——下一步应该升级到真预售来确认</li>
+    <li onclick="checkAnswer(this,'q2',false,'4%的点击率不算低。不要急着降价，先用真收费验证当前价格是否有人接受。')">¥199 太贵了，应该降价再测</li>
+    <li onclick="checkAnswer(this,'q2',false,'8个点击不算少——在200个访客中有4%愿意点购买，已经超过了很多产品的转化率。')">数据太少，没有参考意义</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q3">
+  <p class="quiz-question">3. 预售最重要的原则是什么？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q3',false,'折扣是一种激励手段，但不是预售的核心原则。即使不打折，真正有需求的人也会付费。')">给足够大的折扣吸引人</li>
+    <li onclick="checkAnswer(this,'q3',false,'页面设计当然重要，但一个丑但信息清晰的页面，比一个漂亮但价值模糊的页面更能验证需求。')">页面设计要足够专业</li>
+    <li onclick="checkAnswer(this,'q3',true,'预售的核心是让真钱说话。所有包装、折扣、设计都是辅助手段。如果你搞了半天没人愿意掏钱，说明需求有问题——这恰恰是你需要趁早知道的。')">让真金白银来投票——能收钱就收钱</li>
+    <li onclick="checkAnswer(this,'q3',false,'触达人数影响样本量，但不影响验证原则。即使只触达30个精准用户，只要有3个愿意付费，就是强信号。')">尽可能多地触达潜在用户</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h2>推荐阅读</h2>
+<p><a href="https://www.indiehackers.com/post/examples-of-pre-sales-for-idea-validation-a1adff6091" target="_blank">Examples of pre-sales for idea validation — Indie Hackers</a>——多个独立开发者的预售实战案例，包括成功和失败的。</p>
+<p><a href="https://www.indiehackers.com/post/should-i-collect-payment-info-while-validating-the-product-pre-launch-b74470d8f6" target="_blank">Should I collect payment info while validating? — Indie Hackers</a>——关于预售时机和方式的社区讨论，观点多元。</p>
+
+<div class="lesson-footer">
+  <p>有任何不清楚的地方，随时问我——我是你的老师，不只是一个课件。</p>
+  <p><a href="0003-concierge-mvp.html">← 上一课：礼宾式 MVP</a> · <a href="0005-validation-playbook.html">→ 下一课：验证 Playbook 总览</a></p>
+</div>
+
+<script>
+function checkAnswer(el, quizId, correct, explanation) {
+  const quiz = document.getElementById(quizId);
+  const options = quiz.querySelectorAll('.quiz-options li');
+  const feedback = quiz.querySelector('.quiz-feedback');
+  if (quiz.dataset.answered) return;
+  quiz.dataset.answered = 'true';
+  options.forEach(li => { li.style.cursor = 'default'; });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    options.forEach(li => {
+      if (li !== el && li.onclick.toString().includes("true,'")) {
+        li.classList.add('correct');
+      }
+    });
+  }
+  feedback.textContent = explanation;
+  feedback.style.background = correct ? '#edf7ed' : '#fdf0ed';
+  feedback.style.color = correct ? '#1e7e34' : '#a02020';
+  feedback.classList.add('show');
+}
+</script>
+
+</body>
+</html>

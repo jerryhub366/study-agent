@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学习课程 · Study Agent</title>
+  <meta name="description" content="独立开发者实操课程 — 从需求验证到产品发布的系统化学习路径" />
+  <meta name="theme-color" content="#0a0c10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .courses-header {
+      text-align: center;
+      padding: 80px 0 40px;
+    }
+    .courses-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    .courses-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-bottom: 80px;
+    }
+
+    .course-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+    .course-group:hover {
+      border-color: var(--border-hover);
+    }
+
+    .course-group-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .course-group-header h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .course-group-header h2 .badge {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 2px 10px;
+      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .course-group-header p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+
+    .lesson-list {
+      list-style: none;
+    }
+    .lesson-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition-fast);
+      text-decoration: none;
+      color: inherit;
+    }
+    .lesson-item:last-child {
+      border-bottom: none;
+    }
+    .lesson-item:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .lesson-num {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .lesson-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .lesson-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .lesson-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .lesson-arrow {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+    .lesson-item:hover .lesson-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    .coming-soon {
+      padding: 20px 32px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .courses-header { padding: 60px 0 28px; }
+      .courses-header h1 { font-size: 1.5rem; }
+      .course-group-header { padding: 20px 20px 16px; }
+      .lesson-item { padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <span class="nav-logo">🤖 Agent 落地图鉴</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">卡片视图</a>
+        <a href="timeline.html" class="nav-link">时间线</a>
+        <a href="courses.html" class="nav-link active">课程</a>
+        <a href="index.html#experts" class="nav-link">高手</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="courses-header">
+      <h1>学习课程</h1>
+      <p>独立开发者的实操课程 — 每个系列聚焦一个核心技能，含互动练习和实战任务</p>
+    </div>
+
+    <div class="course-list">
+
+      <div class="course-group">
+        <div class="course-group-header">
+          <h2>需求验证：写代码之前先确认有人买单 <span class="badge">5 课</span></h2>
+          <p>一套可重复的 4 周验证流程 — 从客户对话到预售收款，用最低成本判断一个想法是否值得做</p>
+        </div>
+        <div class="lesson-list">
+          <a class="lesson-item" href="courses/validation/0001-mom-test-core.html">
+            <span class="lesson-num">01</span>
+            <div class="lesson-info">
+              <div class="lesson-title">妈妈测试法</div>
+              <div class="lesson-desc">怎么跟人聊天才能得到真实信息，而不是礼貌的谎言</div>
+            </div>
+            <span class="lesson-arrow">→</span>
+          </a>
+          <a class="lesson-item" href="courses/validation/0002-landing-page-smoke-test.html">
+            <span class="lesson-num">02</span>
+            <div class="lesson-info">
+              <div class="lesson-title">落地页烟雾测试</div>
+              <div class="lesson-desc">用一个页面量化陌生人的兴趣，不写代码就能验证</div>
+            </div>
+            <span class="lesson-arrow">→</span>
+          </a>
+          <a class="lesson-item" href="courses/validation/0003-concierge-mvp.html">
+            <span class="lesson-num">03</span>
+            <div class="lesson-info">
+              <div class="lesson-title">礼宾式 MVP</div>
+              <div class="lesson-desc">先当人肉客服，不写代码就测试用户是否真的会用</div>
+            </div>
+            <span class="lesson-arrow">→</span>
+          </a>
+          <a class="lesson-item" href="courses/validation/0004-pre-sell.html">
+            <span class="lesson-num">04</span>
+            <div class="lesson-info">
+              <div class="lesson-title">预售验证</div>
+              <div class="lesson-desc">让真金白银为你的想法投票 — 产品没做出来就先收钱</div>
+            </div>
+            <span class="lesson-arrow">→</span>
+          </a>
+          <a class="lesson-item" href="courses/validation/0005-validation-playbook.html">
+            <span class="lesson-num">05</span>
+            <div class="lesson-info">
+              <div class="lesson-title">验证 Playbook</div>
+              <div class="lesson-desc">串成 4 周可重复的决策流程，含 Kill Gate 和 Go/No-Go 自检表</div>
+            </div>
+            <span class="lesson-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- future courses go here -->
+      <div class="course-group" style="opacity: 0.5;">
+        <div class="course-group-header">
+          <h2>更多课程 <span class="badge">即将推出</span></h2>
+          <p>竞品分析、定价策略、分发渠道、从 0 到 1 发布……</p>
+        </div>
+        <div class="coming-soon">持续更新中，敬请期待</div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

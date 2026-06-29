@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 05 — 验证 Playbook：从点子到 Go/No-Go 的完整流程</title>
+  <link rel="stylesheet" href="lesson-style.css">
+</head>
+<body>
+
+<h1>Lesson 05 — 验证 Playbook</h1>
+<p class="lesson-meta">主题：把前四课串成一个可重复使用的决策流程 · 预计阅读 12 分钟 · 含 2 道练习 + 1 个综合实战</p>
+
+<p>前四课你学了四个独立的验证工具。这节课把它们<strong>串成一条流水线</strong>——以后每个新点子都可以套这个流程，不用重新想「下一步该做什么」。</p>
+
+<h2>总览：四周验证流水线</h2>
+
+<div class="card" style="padding:0; overflow:hidden;">
+  <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+    <tr style="background:var(--color-accent); color:#fff;">
+      <td style="padding:0.7rem; width:15%;"><strong>阶段</strong></td>
+      <td style="padding:0.7rem; width:25%;"><strong>方法</strong></td>
+      <td style="padding:0.7rem; width:30%;"><strong>你要回答的问题</strong></td>
+      <td style="padding:0.7rem; width:15%;"><strong>时间</strong></td>
+      <td style="padding:0.7rem; width:15%;"><strong>过关标准</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.7rem; font-weight:600;">第 1 周<br>挖需求</td>
+      <td style="padding:0.7rem;"><a href="0001-mom-test-core.html">妈妈测试法</a></td>
+      <td style="padding:0.7rem;">这个痛点真的存在吗？有人在为此花钱/花时间吗？</td>
+      <td style="padding:0.7rem;">3-5 天</td>
+      <td style="padding:0.7rem;">≥ 3/10 人描述了相同的痛点且有现有解决方案</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.7rem; font-weight:600;">第 2 周<br>测兴趣</td>
+      <td style="padding:0.7rem;"><a href="0002-landing-page-smoke-test.html">落地页烟雾测试</a></td>
+      <td style="padding:0.7rem;">陌生人看到我的方案后会感兴趣吗？</td>
+      <td style="padding:0.7rem;">3 小时做页面<br>+ 5-7 天导流</td>
+      <td style="padding:0.7rem;">200+ 访客，邮箱注册 ≥ 6%</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.7rem; font-weight:600;">第 3 周<br>测使用</td>
+      <td style="padding:0.7rem;"><a href="0003-concierge-mvp.html">礼宾式 MVP</a></td>
+      <td style="padding:0.7rem;">用户真的会用这个服务吗？用完会回来吗？</td>
+      <td style="padding:0.7rem;">持续 2-3 周</td>
+      <td style="padding:0.7rem;">≥ 40% 复用率</td>
+    </tr>
+    <tr>
+      <td style="padding:0.7rem; font-weight:600;">第 4 周<br>测付费</td>
+      <td style="padding:0.7rem;"><a href="0004-pre-sell.html">预售验证</a></td>
+      <td style="padding:0.7rem;">有人愿意在产品不存在时就掏钱吗？</td>
+      <td style="padding:0.7rem;">1-2 周</td>
+      <td style="padding:0.7rem;">≥ 3 人付费</td>
+    </tr>
+  </table>
+</div>
+
+<p style="margin-top:1rem; font-size:0.9rem; color:var(--color-muted);">注意：第 3 周和第 4 周可以合并——在礼宾式服务进行到第 2-3 周时开始收费，一箭双雕。</p>
+
+<h2>Kill Gate：什么时候该果断放弃</h2>
+
+<p>每个阶段都有一个<strong>止损门（Kill Gate）</strong>。没过门就不要往下走。</p>
+
+<div class="card" style="border-left:3px solid var(--color-danger);">
+  <h3 style="color:var(--color-danger);">Kill Gate 1 — 需求不存在</h3>
+  <p><strong>信号：</strong>聊了 10 个人，没人能描述出这个痛点，或者他们有痛点但已经用免费方案解决了且满意。</p>
+  <p><strong>动作：</strong>换方向。不要想着「我再换个说法问问看」——如果 10 个人都没反应，问题在需求本身，不在你的话术。</p>
+</div>
+
+<div class="card" style="border-left:3px solid var(--color-danger);">
+  <h3 style="color:var(--color-danger);">Kill Gate 2 — 无法吸引注意</h3>
+  <p><strong>信号：</strong>落地页 200+ 访客，注册率 < 3%。</p>
+  <p><strong>动作：</strong>先排除执行问题（文案太差？渠道不对？）。换一版文案、换一个渠道再测一轮。如果两轮都 < 3%，这个方案的表达方式有根本问题，要么大幅调整价值主张，要么放弃。</p>
+</div>
+
+<div class="card" style="border-left:3px solid var(--color-danger);">
+  <h3 style="color:var(--color-danger);">Kill Gate 3 — 用了不回来</h3>
+  <p><strong>信号：</strong>手动服务了 8 个人，大多数用一次就消失了。</p>
+  <p><strong>动作：</strong>追问流失原因。可能是服务体验差（执行问题，可修），也可能是需求是一次性的（根本问题，不适合做 SaaS）。</p>
+</div>
+
+<div class="card" style="border-left:3px solid var(--color-danger);">
+  <h3 style="color:var(--color-danger);">Kill Gate 4 — 没人掏钱</h3>
+  <p><strong>信号：</strong>4 周内 0 个陌生人付费。</p>
+  <p><strong>动作：</strong>止损。不是「产品还没做出来所以没人买」——如果需求真的强烈，至少会有几个人愿意预付。0 付费是最清晰的红灯。</p>
+</div>
+
+<h2>快速自检清单</h2>
+
+<p>在你决定开始写代码之前，确保以下每一项都打了勾：</p>
+
+<div class="highlight-box" id="checklist-box">
+  <div style="font-family:var(--font-heading); font-weight:600; margin-bottom:0.8rem;">✅ Go/No-Go 自检表</div>
+  <label class="check-item"><input type="checkbox"> 我能用一句话说清楚目标用户是谁、他们的痛点是什么</label><br>
+  <label class="check-item"><input type="checkbox"> 我跟至少 5 个目标用户深入聊过，他们确认了这个痛点</label><br>
+  <label class="check-item"><input type="checkbox"> 有人目前在为解决这个问题花钱或花大量时间</label><br>
+  <label class="check-item"><input type="checkbox"> 我的落地页对陌生人有吸引力（注册率 ≥ 6%）</label><br>
+  <label class="check-item"><input type="checkbox"> 至少 3 个陌生人愿意预付费</label><br>
+  <label class="check-item"><input type="checkbox"> 我知道怎么持续触达更多目标用户（分发渠道）</label><br>
+  <label class="check-item"><input type="checkbox"> 我为这个项目设定了明确的止损条件和时间线</label><br>
+  <div id="checklist-result" style="margin-top:0.8rem; font-weight:600; display:none;"></div>
+</div>
+
+<h2>一张图看全流程</h2>
+
+<div class="card" style="text-align:center; font-family:var(--font-heading); font-size:0.88rem; line-height:2;">
+  <div style="display:inline-block; text-align:left;">
+    <strong>点子</strong><br>
+    &nbsp;&nbsp;↓<br>
+    <span style="background:#edf7ed; padding:0.2rem 0.6rem; border-radius:3px;">妈妈测试法 → 痛点真实？</span>
+    &nbsp;— 否 → <span style="color:var(--color-danger);">⬛ 换方向</span><br>
+    &nbsp;&nbsp;↓ 是<br>
+    <span style="background:#edf7ed; padding:0.2rem 0.6rem; border-radius:3px;">落地页测试 → 有人感兴趣？</span>
+    &nbsp;— 否 → <span style="color:var(--color-warning);">🔄 换文案/受众再测</span><br>
+    &nbsp;&nbsp;↓ 是<br>
+    <span style="background:#edf7ed; padding:0.2rem 0.6rem; border-radius:3px;">礼宾式 MVP → 用了会回来？</span>
+    &nbsp;— 否 → <span style="color:var(--color-danger);">⬛ 需求是一次性的</span><br>
+    &nbsp;&nbsp;↓ 是<br>
+    <span style="background:#edf7ed; padding:0.2rem 0.6rem; border-radius:3px;">预售 → 有人掏钱？</span>
+    &nbsp;— 否 → <span style="color:var(--color-danger);">⬛ 止损</span><br>
+    &nbsp;&nbsp;↓ 是<br>
+    <strong style="color:var(--color-success); font-size:1.1rem;">🟢 开始开发 MVP</strong>
+  </div>
+</div>
+
+<h2>常见误区</h2>
+
+<div class="compare">
+  <div class="compare-bad">
+    <h4>✗ 错误做法</h4>
+    <p>「我先花两个月把产品做出来，然后看有没有人用」</p>
+    <p>「朋友们都说好，我觉得可以做了」</p>
+    <p>「竞品那么多，说明市场大」（不看差异化）</p>
+    <p>「转化率不高但我觉得是文案问题，先做产品再说」</p>
+  </div>
+  <div class="compare-good">
+    <h4>✓ 正确做法</h4>
+    <p>「写代码之前，先用 4 周走完验证流程」</p>
+    <p>「只看陌生人的行为数据，朋友的话打三折」</p>
+    <p>「竞品多说明有市场，但我需要一个具体的差异化点」</p>
+    <p>「转化率不够就先优化验证，不急着开发」</p>
+  </div>
+</div>
+
+<h2>进阶：23 点评分框架</h2>
+
+<p>如果你想更系统化地评估一个想法，可以参考 <a href="https://ideakiller.app/blog/startup-idea-validation-checklist/" target="_blank">IdeaKiller 的 23 点验证清单</a>，它把评估分成 5 个维度：</p>
+
+<table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+  <tr style="border-bottom:2px solid var(--color-border);">
+    <td style="padding:0.5rem;"><strong>维度</strong></td>
+    <td style="padding:0.5rem;"><strong>核心问题</strong></td>
+    <td style="padding:0.5rem;"><strong>Kill Gate</strong></td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.5rem;">市场需求</td>
+    <td style="padding:0.5rem;">有人在搜索这个问题吗？市场规模多大？</td>
+    <td style="padding:0.5rem;">6 项检查 < 3 项通过 → 放弃</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.5rem;">竞争格局</td>
+    <td style="padding:0.5rem;">竞品有什么明显缺陷？你的差异化能防守吗？</td>
+    <td style="padding:0.5rem;">有单一竞品占 > 70% 份额 → 谨慎</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.5rem;">问题-市场匹配</td>
+    <td style="padding:0.5rem;">目标用户能一句话描述吗？痛点是高频的吗？</td>
+    <td style="padding:0.5rem;">5 项检查 < 3 项通过 → 重新定位</td>
+  </tr>
+  <tr style="border-bottom:1px solid var(--color-border);">
+    <td style="padding:0.5rem;">单位经济</td>
+    <td style="padding:0.5rem;">LTV:CAC ≥ 3:1？回本期 < 12 个月？</td>
+    <td style="padding:0.5rem;">LTV:CAC < 2:1 → 商业模式需重构</td>
+  </tr>
+  <tr>
+    <td style="padding:0.5rem;">风险与可行性</td>
+    <td style="padding:0.5rem;">MVP 能在 3 个月内做出来吗？有法规障碍吗？</td>
+    <td style="padding:0.5rem;">无法在 3 个月内出 MVP → 缩小范围</td>
+  </tr>
+</table>
+
+<p style="margin-top:0.6rem; font-size:0.9rem; color:var(--color-muted);">总分 23 分：19-23 强势推进 / 14-18 条件推进 / 8-13 需调整 / 0-7 放弃。<br>来源：<a href="https://ideakiller.app/blog/startup-idea-validation-checklist/" target="_blank">IdeaKiller — 23-Point Validation Checklist</a></p>
+
+<h2>练习时间</h2>
+
+<div class="quiz" id="q1">
+  <p class="quiz-question">1. 你有一个新点子：「帮独立咖啡馆自动管理会员积分」。你完成了妈妈测试法，8/10 的咖啡馆老板都说「会员管理太麻烦了」，但他们目前都在用纸质卡片。下一步你应该？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q1',false,'痛点确认了，但直接开发跳过了兴趣验证和付费验证。你不知道他们是否愿意为电子化方案付费——也许纸质卡片虽然麻烦但「够用了」。')">直接开发一个最简版积分系统</li>
+    <li onclick="checkAnswer(this,'q1',true,'正确！痛点已确认（Kill Gate 1 通过），下一步是用落地页测试陌生人是否对你的解决方案感兴趣。按流程走，不跳步。')">做一个落地页，看陌生的咖啡馆老板是否感兴趣</li>
+    <li onclick="checkAnswer(this,'q1',false,'你已经聊了 10 个人且 8 个确认了痛点，需求端的信号够了。继续聊更多人不会产生新信息，是在拖延。')">再多聊 20 个咖啡馆老板，确保样本够大</li>
+    <li onclick="checkAnswer(this,'q1',false,'竞品分析是有用的辅助信息，但此刻你的验证流程应该是：痛点确认 ✓ → 下一步测兴趣，不是转去做桌面研究。')">做竞品分析，看看市面上有哪些会员管理工具</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q2">
+  <p class="quiz-question">2. 你走完了全部四个阶段。落地页注册率 8%，礼宾式服务 5 个用户中 3 个持续使用了 3 周，但预售阶段只有 1 个人付费。你应该？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q2',false,'1个人付费处于黄灯区（1-2人），直接全力开发风险太大。')">1 个付费足够了，开始开发</li>
+    <li onclick="checkAnswer(this,'q2',false,'前面的信号都不错（注册率8%、复用率60%），说明需求本身存在。完全放弃太极端。')">放弃这个方向，4 个阶段没全部达标</li>
+    <li onclick="checkAnswer(this,'q2',true,'黄灯区的正确做法是深入分析：付费的那个人为什么买？没买的人卡在哪里？是价格问题？是信任问题？还是他们有更好的替代品？答案会告诉你是调整定价、调整方案、还是真的放弃。')">深入分析：为什么 3 个活跃用户中有 2 个不愿意付费</li>
+    <li onclick="checkAnswer(this,'q2',false,'降价可能是答案之一，但在搞清楚不付费的原因之前就降价，是在猜而不是在验证。也许价格不是问题。')">降价 50% 再试一轮预售</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h2>综合实战任务</h2>
+
+<div class="highlight-box">
+  <strong>毕业作业：为你的下一个想法走一遍完整流程</strong><br><br>
+  选一个你真正想做的产品点子（可以是之前 grilling 里讨论的，也可以是新的），用 4 周时间走完以下流程：<br><br>
+  <strong>第 1 周</strong>——找 5-10 个目标用户，用妈妈测试法聊天。记录痛点和现有解决方案。<br>
+  <strong>第 2 周</strong>——做落地页，导入 200+ 陌生访客，记录注册率。<br>
+  <strong>第 3-4 周</strong>——为注册用户手动提供服务 + 开始预售。记录复用率和付费人数。<br><br>
+  <strong>每个阶段结束后，对照 Kill Gate 判断是否继续。</strong><br><br>
+  4 周后回来，把你的数据带过来——我们一起复盘，判断这个想法是否值得投入开发。
+</div>
+
+<h2>课程总结</h2>
+
+<div class="card">
+  <h3>这门课教了你什么</h3>
+  <ol style="margin-top:0.5rem;">
+    <li><strong><a href="0001-mom-test-core.html">妈妈测试法</a></strong>——怎么跟人聊天才能得到真实信息，而不是礼貌的谎言</li>
+    <li><strong><a href="0002-landing-page-smoke-test.html">落地页烟雾测试</a></strong>——怎么用一个页面量化陌生人的兴趣</li>
+    <li><strong><a href="0003-concierge-mvp.html">礼宾式 MVP</a></strong>——怎么不写代码就测试用户是否真的会用</li>
+    <li><strong><a href="0004-pre-sell.html">预售验证</a></strong>——怎么让真金白银来为你的想法投票</li>
+    <li><strong>验证 Playbook</strong>——怎么把以上四个工具串成一个可重复的决策流程</li>
+  </ol>
+  <p style="margin-top:1rem;">核心信念只有一条：<strong>写代码之前先验证需求，让数据和真钱告诉你答案。</strong></p>
+</div>
+
+<h2>推荐阅读</h2>
+<ul>
+  <li><a href="https://www.momtestbook.com/" target="_blank"><em>The Mom Test</em> — Rob Fitzpatrick</a>——客户对话的圣经</li>
+  <li><a href="https://ideakiller.app/blog/startup-idea-validation-checklist/" target="_blank">23-Point Validation Checklist — IdeaKiller</a>——系统化的评估框架</li>
+  <li><a href="https://calmops.com/indie-hackers/validate-idea-in-7-days-without-code/" target="_blank">Validate Your Idea in 7 Days Without Code — Calmops</a>——更激进的快速验证指南</li>
+</ul>
+
+<div class="lesson-footer">
+  <p>恭喜你完成全部 5 课！有任何问题，随时回来找我——学习是持续的过程。</p>
+  <p><a href="0004-pre-sell.html">← 上一课：预售验证</a> · <a href="0001-mom-test-core.html">↩ 回到第一课</a></p>
+</div>
+
+<script>
+function checkAnswer(el, quizId, correct, explanation) {
+  const quiz = document.getElementById(quizId);
+  const options = quiz.querySelectorAll('.quiz-options li');
+  const feedback = quiz.querySelector('.quiz-feedback');
+  if (quiz.dataset.answered) return;
+  quiz.dataset.answered = 'true';
+  options.forEach(li => { li.style.cursor = 'default'; });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    options.forEach(li => {
+      if (li !== el && li.onclick.toString().includes("true,'")) {
+        li.classList.add('correct');
+      }
+    });
+  }
+  feedback.textContent = explanation;
+  feedback.style.background = correct ? '#edf7ed' : '#fdf0ed';
+  feedback.style.color = correct ? '#1e7e34' : '#a02020';
+  feedback.classList.add('show');
+}
+
+// Checklist counter
+document.getElementById('checklist-box').addEventListener('change', function() {
+  const boxes = this.querySelectorAll('input[type=checkbox]');
+  const checked = [...boxes].filter(b => b.checked).length;
+  const result = document.getElementById('checklist-result');
+  result.style.display = 'block';
+  if (checked === 7) {
+    result.textContent = '🟢 全部通过！可以开始写代码了。';
+    result.style.color = 'var(--color-success)';
+  } else if (checked >= 5) {
+    result.textContent = `🟡 ${checked}/7 — 接近了，但还有 ${7-checked} 项需要确认。`;
+    result.style.color = 'var(--color-warning)';
+  } else {
+    result.textContent = `🔴 ${checked}/7 — 还不够，继续验证。`;
+    result.style.color = 'var(--color-danger)';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 03 — 礼宾式 MVP：先当人肉客服，再写代码</title>
+  <link rel="stylesheet" href="lesson-style.css">
+</head>
+<body>
+
+<h1>Lesson 03 — 礼宾式 MVP</h1>
+<p class="lesson-meta">主题：用人工服务代替产品，验证用户是否真的会用 · 预计阅读 10 分钟 · 含 3 道练习</p>
+
+<p>上节课你学会了用落地页测试「有没有人感兴趣」。但注册了邮箱≠会用你的产品，更≠会持续付费。</p>
+
+<p>这节课教你一个更深层的验证手段：<strong>礼宾式 MVP（Concierge MVP）</strong>——不写代码，你亲手给用户提供服务，看他们是否真的需要、愿意付费、会反复使用。</p>
+
+<blockquote>
+  「Airbnb 的创始人早期亲自去房东家拍照、回复消息、处理预订。Food on the Table 的创始人亲自帮用户去超市采购。他们不是在偷懒，而是在学习。」<br>
+  — <a href="https://learningloop.io/plays/concierge" target="_blank">Learning Loop — Concierge MVP</a>
+</blockquote>
+
+<h2>什么是礼宾式 MVP</h2>
+
+<div class="card">
+  <h3>核心思路</h3>
+  <p>你<strong>手动</strong>为一小群用户（5-10 人）提供你未来产品会自动化做的事。用微信、邮件、电话、甚至面对面的方式交付服务。</p>
+  <p>目的不是「做出产品」，而是回答三个问题：</p>
+  <ol style="margin-top:0.5rem;">
+    <li>用户真的会用这个服务吗？（不是说说而已）</li>
+    <li>他们愿意为此付钱吗？付多少？</li>
+    <li>他们会反复使用吗？（还是用一次就够了）</li>
+  </ol>
+</div>
+
+<h2>什么时候该用礼宾式 MVP</h2>
+
+<div class="compare">
+  <div class="compare-good">
+    <h4>✓ 适合</h4>
+    <p>你的产品是一个<strong>流程/服务</strong>：帮人做某件事、生成某个结果、提供某种建议</p>
+    <p>你不确定用户真正需要的是哪个环节</p>
+    <p>开发成本高，想先确认方向</p>
+  </div>
+  <div class="compare-bad">
+    <h4>✗ 不太适合</h4>
+    <p>产品价值完全依赖<strong>实时性或规模</strong>（如搜索引擎、社交网络）</p>
+    <p>核心体验无法手动模拟（如游戏手感）</p>
+  </div>
+</div>
+
+<h2>7 步操作流程</h2>
+
+<p>以一个虚构案例说明——假设你想做一个「帮自由职业者每周自动整理报税材料」的工具：</p>
+
+<div class="card">
+  <h3>Step 1：定义你要手动交付的结果</h3>
+  <p>一句话：「每周帮自由职业者整理好本周的收入和支出，生成一份报税用的分类汇总」</p>
+  <p>注意：只定义<strong>结果</strong>，不定义实现方式。</p>
+</div>
+
+<div class="card">
+  <h3>Step 2：招募 5-10 个精准用户</h3>
+  <p>从你的落地页注册列表、社区帖子回复、或朋友的朋友中找。关键是他们必须是<strong>真正的目标用户</strong>，不是帮忙测试的朋友。</p>
+</div>
+
+<div class="card">
+  <h3>Step 3：设定预期</h3>
+  <p>告诉用户：「这是一个为期 4 周的试验服务，我会人工帮你做 XX。作为回报，希望你每周给我 10 分钟反馈。」</p>
+  <p>可以免费，也可以收一个象征性价格（¥49/月）。收费本身就是验证。</p>
+</div>
+
+<div class="card">
+  <h3>Step 4：手动交付</h3>
+  <p>用 Excel、微信、邮件——任何方式都行。关键是<strong>记录每一个步骤</strong>：你花了多少时间、用户问了什么问题、哪里卡住了。</p>
+</div>
+
+<div class="card">
+  <h3>Step 5：追踪数据</h3>
+  <table style="width:100%; border-collapse:collapse; font-size:0.92rem; margin-top:0.4rem;">
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;"><strong>指标</strong></td>
+      <td style="padding:0.4rem;"><strong>记什么</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">每次服务耗时</td>
+      <td style="padding:0.4rem;">判断自动化后的成本</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">用户反复使用率</td>
+      <td style="padding:0.4rem;">4 周里用了几次？</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.4rem;">用户主动要求的功能</td>
+      <td style="padding:0.4rem;">他们尝试「索取」什么？</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem;">付费意愿</td>
+      <td style="padding:0.4rem;">免费试用结束后，愿意继续付费吗？</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Step 6：每次服务后复盘</h3>
+  <p>问自己：这次哪里顺利？哪里有摩擦？用户真正关心的是什么？有没有我以为重要但用户根本不在乎的环节？</p>
+</div>
+
+<div class="card">
+  <h3>Step 7：判断是否值得自动化</h3>
+  <table style="width:100%; border-collapse:collapse; font-size:0.92rem; margin-top:0.4rem;">
+    <tr style="border-bottom:2px solid var(--color-border);">
+      <td style="padding:0.5rem;"><strong>指标</strong></td>
+      <td style="padding:0.5rem;"><strong>达标线</strong></td>
+      <td style="padding:0.5rem;"><strong>含义</strong></td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">激活转化率</td>
+      <td style="padding:0.5rem;">≥ 20%</td>
+      <td style="padding:0.5rem;">注册的人里有多少真的用了</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">30 天复用率</td>
+      <td style="padding:0.5rem;">≥ 40%</td>
+      <td style="padding:0.5rem;">用了的人里有多少回来了</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--color-border);">
+      <td style="padding:0.5rem;">NPS 评分</td>
+      <td style="padding:0.5rem;">> 30</td>
+      <td style="padding:0.5rem;">用户会不会推荐给别人</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem;">付费转化</td>
+      <td style="padding:0.5rem;">≥ 3 人</td>
+      <td style="padding:0.5rem;">试用结束后愿意继续付费</td>
+    </tr>
+  </table>
+  <p style="margin-top:0.6rem; font-size:0.9rem; color:var(--color-muted);">数据来源：<a href="https://learningloop.io/plays/concierge" target="_blank">Learning Loop</a></p>
+</div>
+
+<h2>常见陷阱</h2>
+
+<div class="highlight-box">
+  <strong>⚠ 四个最容易踩的坑：</strong><br><br>
+  <strong>1. 同时服务太多人</strong>——你是一个人，5-10 个用户就够了。人多了你忙不过来，服务质量下降，数据也不干净。<br><br>
+  <strong>2. 过早自动化</strong>——「这个步骤我可以写个脚本」的念头会一直冒出来。忍住。你还不确定这个步骤是否重要。<br><br>
+  <strong>3. 忽视负面反馈</strong>——有人不回消息了？有人说「这周不需要了」？这些才是最重要的信号。追问原因。<br><br>
+  <strong>4. 把免费用户当付费用户</strong>——免费的东西谁都「觉得还行」。至少在第 3 周开始收费，哪怕只收 ¥49。
+</div>
+
+<h2>练习时间</h2>
+
+<div class="quiz" id="q1">
+  <p class="quiz-question">1. 你在做一个「帮小红书博主自动排版封面图」的工具。以下哪种验证方式最适合用礼宾式 MVP？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q1',true,'正确！手动帮博主排版，你能直接看到他们的真实需求、审美偏好、修改频率。这些洞察是写代码前最宝贵的信息。')">在微信群里找 8 个博主，手动帮他们排版封面图，持续 3 周</li>
+    <li onclick="checkAnswer(this,'q1',false,'发问卷是在问观点，不是在测行为。「我觉得有用」和「我真的会用」之间有鸿沟。')">做一份问卷调查，问 100 个博主需不需要这个功能</li>
+    <li onclick="checkAnswer(this,'q1',false,'花两周开发已经太重了。如果做出来发现博主根本不在乎自动排版，这两周就浪费了。')">花两周写一个最简版本的排版工具发布到小红书</li>
+    <li onclick="checkAnswer(this,'q1',false,'竞品分析能告诉你市场有没有人在做，但不能告诉你你的目标用户是否愿意用和付费。')">研究竞品 Canva 和稿定设计，分析它们的不足</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q2">
+  <p class="quiz-question">2. 你人工服务了 8 个用户 4 周。6 个人每周都在用，但问到是否愿意付 ¥49/月时，只有 1 个人说愿意。这说明什么？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q2',false,'复用率高说明服务确实有价值，但定价或价值传达可能有问题。不要急着放弃。')">需求不存在，应该放弃</li>
+    <li onclick="checkAnswer(this,'q2',false,'降价可能有用，但不是第一反应。先搞清楚他们为什么不愿意付——是觉得不值¥49，还是觉得免费替代品够用了？')">价格太高，应该降到 ¥19</li>
+    <li onclick="checkAnswer(this,'q2',true,'高复用率 + 低付费意愿通常意味着：用户觉得服务有用但不值这个价，或者他们有免费替代品。需要深入了解原因，可能是定价问题，也可能是价值主张需要调整。')">需求可能存在，但需要深入了解不愿付费的原因</li>
+    <li onclick="checkAnswer(this,'q2',false,'8 个人、4 周的深度使用数据已经非常有价值。问题不在样本量，在于付费意愿的信号需要进一步分析。')">样本太小，需要扩大到 30 人</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<div class="quiz" id="q3">
+  <p class="quiz-question">3. 礼宾式 MVP 最大的价值是什么？</p>
+  <ul class="quiz-options">
+    <li onclick="checkAnswer(this,'q3',false,'省钱是好处之一，但不是最大价值。落地页也能省钱，而且更快。')">省去开发成本</li>
+    <li onclick="checkAnswer(this,'q3',false,'获得种子用户是副产品，但不是核心目的。')">获得第一批种子用户</li>
+    <li onclick="checkAnswer(this,'q3',true,'手动服务的过程中，你能发现用户真正关心的是哪个环节、哪里有摩擦、哪些功能你以为重要其实没人在乎。这些洞察决定了你将来写代码时应该做什么、不做什么。')">深入理解用户到底需要什么、不需要什么</li>
+    <li onclick="checkAnswer(this,'q3',false,'验证商业模式更多是落地页和预售的功能。礼宾式MVP的独特价值在于深度的用户理解。')">验证商业模式是否可行</li>
+  </ul>
+  <div class="quiz-feedback"></div>
+</div>
+
+<h2>你的下一步行动</h2>
+
+<div class="highlight-box">
+  <strong>思考题（不需要现在执行）：</strong><br><br>
+  回想你现在的产品想法。如果不写一行代码，你能用微信 + Excel 手动为 5 个用户提供同样的服务吗？<br><br>
+  如果能——恭喜，你找到了最低成本的验证路径。<br>
+  如果不能——想想为什么不能。是因为服务本身无法手动模拟，还是因为你下意识觉得「手动做太 low 了」？后者是一个需要克服的心理障碍。
+</div>
+
+<h2>推荐阅读</h2>
+<p><a href="https://learningloop.io/plays/concierge" target="_blank">Concierge MVP Experiment — Learning Loop</a>——本课核心参考，包含完整的 7 步流程和自动化判断指标。</p>
+
+<div class="lesson-footer">
+  <p>有任何不清楚的地方，随时问我——我是你的老师，不只是一个课件。</p>
+  <p><a href="0002-landing-page-smoke-test.html">← 上一课：落地页烟雾测试</a> · <a href="0004-pre-sell.html">→ 下一课：预售验证</a></p>
+</div>
+
+<script>
+function checkAnswer(el, quizId, correct, explanation) {
+  const quiz = document.getElementById(quizId);
+  const options = quiz.querySelectorAll('.quiz-options li');
+  const feedback = quiz.querySelector('.quiz-feedback');
+  if (quiz.dataset.answered) return;
+  quiz.dataset.answered = 'true';
+  options.forEach(li => { li.style.cursor = 'default'; });
+  el.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    options.forEach(li => {
+      if (li !== el && li.onclick.toString().includes("true,'")) {
+        li.classList.add('correct');
+      }
+    });
+  }
+  feedback.textContent = explanation;
+  feedback.style.background = correct ? '#edf7ed' : '#fdf0ed';
+  feedback.style.color = correct ? '#1e7e34' : '#a02020';
+  feedback.classList.add('show');
+}
+</script>
+
+</body>
+</html>
