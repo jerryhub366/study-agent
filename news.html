@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>资讯 · Agent 落地图鉴</title>
+  <meta name="description" content="值得一读的 AI Agent 文章与深度观点" />
+  <meta name="theme-color" content="#0a0c10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="scroll-progress"></div>
+
+  <nav class="top-nav">
+    <div class="container nav-inner">
+      <span class="nav-logo">🤖 Agent 落地图鉴</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">案例</a>
+        <a href="timeline.html" class="nav-link">时间线</a>
+        <a href="courses.html" class="nav-link">课程</a>
+        <a href="projects.html" class="nav-link">项目</a>
+        <a href="news.html" class="nav-link active">资讯</a>
+        <a href="index.html#experts" class="nav-link">高手</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="news-header">
+      <h1>资讯</h1>
+      <p>值得一读的 AI Agent 文章与深度观点</p>
+    </div>
+
+    <section class="news-section">
+      <div class="news-list" id="newsList"></div>
+      <div class="news-loading" id="newsLoading">加载中...</div>
+      <div class="news-error" id="newsError" style="display:none">
+        加载失败，请稍后重试
+        <br><button class="news-retry" onclick="retry()">重试</button>
+      </div>
+      <div class="news-end" id="newsEnd" style="display:none">已加载全部文章</div>
+    </section>
+  </div>
+
+  <script>
+    const API = 'https://fav.ladebuid.com/api/articles';
+    const PAGE_SIZE = 20;
+    let offset = 0;
+    let loading = false;
+    let allLoaded = false;
+
+    const listEl = document.getElementById('newsList');
+    const loadingEl = document.getElementById('newsLoading');
+    const errorEl = document.getElementById('newsError');
+    const endEl = document.getElementById('newsEnd');
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      const d = new Date(iso);
+      const m = d.getMonth() + 1;
+      const day = d.getDate();
+      return d.getFullYear() + '-' + String(m).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    }
+
+    function renderArticles(articles) {
+      articles.forEach(function(a, i) {
+        const el = document.createElement('a');
+        el.className = 'news-item';
+        el.href = 'https://fav.ladebuid.com/' + a.id;
+        el.target = '_blank';
+        el.rel = 'noopener';
+        el.innerHTML =
+          '<div class="news-item-meta">' +
+            '<span class="news-author">' + escHtml(a.author) + '</span>' +
+            '<span class="news-date">' + formatDate(a.publishedAt || a.collectedAt) + '</span>' +
+          '</div>' +
+          '<h3 class="news-title">' + escHtml(a.title) + '</h3>';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(12px)';
+        listEl.appendChild(el);
+        setTimeout(function() {
+          el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, i * 40);
+      });
+    }
+
+    function escHtml(s) {
+      var d = document.createElement('div');
+      d.textContent = s || '';
+      return d.innerHTML;
+    }
+
+    async function loadArticles() {
+      if (loading || allLoaded) return;
+      loading = true;
+      loadingEl.style.display = '';
+      errorEl.style.display = 'none';
+
+      try {
+        var res = await fetch(API + '?limit=' + PAGE_SIZE + '&offset=' + offset);
+        var data = await res.json();
+        renderArticles(data.articles);
+        offset += data.articles.length;
+        if (offset >= data.total) {
+          allLoaded = true;
+          loadingEl.style.display = 'none';
+          if (data.total > 0) endEl.style.display = '';
+        }
+      } catch (e) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = '';
+      }
+      loading = false;
+    }
+
+    function retry() {
+      errorEl.style.display = 'none';
+      loadArticles();
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) loadArticles();
+    }, { rootMargin: '200px' });
+    observer.observe(loadingEl);
+
+    loadArticles();
+  </script>
+
+</body>
+</html>
