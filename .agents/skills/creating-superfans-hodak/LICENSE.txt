@@ -1,0 +1,3 @@
+Skill distillation for personal/educational use. Do not reproduce source passages verbatim.
+
+This skill contains distilled knowledge from the source listed in SKILL.md. It is not a verbatim reproduction.
