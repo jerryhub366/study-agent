@@ -274,5 +274,82 @@
   </div>
 
 </div>
+
+  <!-- ===== 页内文案编辑器（独立模块，删除整块即可移除；仅本地 file:// / localhost 显示） ===== -->
+  <style id="ce-style">
+    #ce-bar{position:fixed;right:18px;bottom:18px;z-index:9999;display:none;gap:8px;align-items:center;
+      font-family:-apple-system,"PingFang SC",system-ui,sans-serif}
+    #ce-bar button{border:1px solid #2c3140;background:#20242e;color:#e8eaf0;font-size:13px;
+      padding:8px 14px;border-radius:20px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:.15s}
+    #ce-bar button:hover{border-color:#a06bff;color:#fff}
+    #ce-bar #ce-export{background:#a06bff;border-color:#a06bff;color:#fff}
+    #ce-hint{font-size:12px;color:#9aa2b4;background:#191c23;border:1px solid #2c3140;
+      padding:6px 12px;border-radius:20px}
+    #ce-toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);z-index:10000;
+      background:#38c793;color:#0f1115;font-weight:600;font-size:13px;padding:8px 18px;border-radius:20px;
+      opacity:0;transition:opacity .25s;font-family:-apple-system,"PingFang SC",system-ui,sans-serif;pointer-events:none}
+    body.ce-editing [contenteditable]{outline:1px dashed rgba(160,107,255,.5);outline-offset:3px;border-radius:4px;cursor:text}
+    body.ce-editing [contenteditable]:hover{outline-color:#a06bff}
+    body.ce-editing [contenteditable]:focus{outline:2px solid #a06bff;background:rgba(160,107,255,.09)}
+  </style>
+  <div id="ce-bar">
+    <span id="ce-hint" hidden>点任意文字即可改 · 改完点导出</span>
+    <button id="ce-export" hidden>⬇️ 导出 / 保存</button>
+    <button id="ce-toggle">✏️ 编辑文案</button>
+  </div>
+  <div id="ce-toast"></div>
+  <script id="ce-script">
+  (function(){
+    // 只在本地打开时启用，部署到线上访客看不到
+    var local = location.protocol === 'file:' || ['localhost','127.0.0.1',''].indexOf(location.hostname) !== -1;
+    if(!local) return;
+    var SEL = 'h1,.lead,.meta,.pos .big,.pos .tag,h2,.sess,.card .t,.card .d,.k,.io .lbl,.io .val,.col h3,.col li,.verdict,.pri .rank,.pri .pt,.pri .pd,.avoid,.reco > p,.legend span';
+    var bar=document.getElementById('ce-bar'), toggle=document.getElementById('ce-toggle'),
+        exportBtn=document.getElementById('ce-export'), hint=document.getElementById('ce-hint'),
+        toast=document.getElementById('ce-toast'), editing=false;
+    bar.style.display='flex';
+
+    function els(){ return document.querySelectorAll(SEL); }
+    function setEditing(on){
+      editing=on;
+      document.body.classList.toggle('ce-editing', on);
+      els().forEach(function(el){ if(on){ el.setAttribute('contenteditable','true'); el.spellcheck=false; }
+                                   else { el.removeAttribute('contenteditable'); } });
+      toggle.textContent = on ? '✓ 完成' : '✏️ 编辑文案';
+      exportBtn.hidden = !on; hint.hidden = !on;
+    }
+    function showToast(msg){ toast.textContent=msg; toast.style.opacity='1';
+      setTimeout(function(){ toast.style.opacity='0'; }, 1800); }
+
+    function buildHTML(){
+      var clone=document.documentElement.cloneNode(true);
+      clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+      clone.querySelectorAll('[spellcheck]').forEach(function(el){ el.removeAttribute('spellcheck'); });
+      var b=clone.querySelector('body'); if(b) b.classList.remove('ce-editing');
+      var e=clone.querySelector('#ce-export'); if(e) e.setAttribute('hidden','');
+      var h=clone.querySelector('#ce-hint'); if(h) h.setAttribute('hidden','');
+      var t=clone.querySelector('#ce-toggle'); if(t) t.textContent='✏️ 编辑文案';
+      return '<!DOCTYPE html>\n' + clone.outerHTML + '\n';
+    }
+    async function doExport(){
+      var html=buildHTML();
+      if(window.showSaveFilePicker){
+        try{
+          var handle=await window.showSaveFilePicker({ suggestedName:'leige-workflow.html',
+            types:[{description:'HTML',accept:{'text/html':['.html']}}] });
+          var w=await handle.createWritable(); await w.write(html); await w.close();
+          showToast('已保存到文件 ✓'); return;
+        }catch(err){ if(err && err.name==='AbortError') return; /* 不支持则走下载 */ }
+      }
+      var blob=new Blob([html],{type:'text/html;charset=utf-8'});
+      var a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+      a.download='leige-workflow.html'; a.click(); URL.revokeObjectURL(a.href);
+      showToast('已下载到 Downloads，覆盖原文件即可');
+    }
+    toggle.addEventListener('click', function(){ setEditing(!editing); });
+    exportBtn.addEventListener('click', doExport);
+  })();
+  </script>
+
 </body>
 </html>
