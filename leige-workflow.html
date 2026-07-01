@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磊哥 达人IP 工作流梳理 v2</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#191c23; --card2:#20242e; --line:#2c3140;
+    --ink:#e8eaf0; --sub:#9aa2b4; --dim:#6b7386;
+    --blue:#4c8dff; --green:#38c793; --amber:#f6a623; --purple:#a06bff; --red:#ff6b6b; --gray:#5b6373;
+    --chip:#252a36;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:40px 24px 80px}
+  h1{font-size:28px;margin:0 0 6px;letter-spacing:.5px}
+  .lead{color:var(--sub);font-size:15px;margin:0 0 4px}
+  .meta{color:var(--dim);font-size:13px;margin-bottom:32px}
+  h2{font-size:19px;margin:44px 0 16px;padding-left:12px;border-left:4px solid var(--blue)}
+  .pos{background:linear-gradient(135deg,#1b2333,#191c23);border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .pos .big{font-size:16px;font-weight:600;flex:1;min-width:260px}
+  .pos .tag{background:var(--chip);color:var(--sub);border-radius:20px;padding:5px 13px;font-size:13px}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 4px;font-size:13px;color:var(--sub)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:11px;height:11px;border-radius:50%}
+
+  /* flow */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .step{display:flex;gap:16px;position:relative}
+  .rail{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:40px}
+  .num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;color:#0f1115;flex-shrink:0;z-index:2}
+  .bar{width:2px;flex:1;background:var(--line);margin:2px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:15px 18px;margin-bottom:16px;flex:1}
+  .card .t{font-weight:600;font-size:16px;margin-bottom:4px}
+  .card .t .who{font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .who.self{background:#2a3348;color:#9cc2ff}
+  .who.out{background:#33302a;color:#e0c088}
+  .who.client{background:#2a3d2c;color:#8fe0b4}
+  .card .d{color:var(--sub);font-size:14px}
+  .card .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .k{font-size:12px;padding:4px 10px;border-radius:6px;background:var(--card2);color:var(--sub);
+    border:1px solid var(--line)}
+  .k b{color:var(--ink);font-weight:600}
+  .k.tool{border-color:#2e4a6b;color:#9cc2ff}
+  .k.core{border-color:#3a5c3f;color:#8fe0b4}
+  .k.out{border-color:#5c4a2e;color:#f6c979}
+  .k.ok{border-color:#3a5c3f;color:#8fe0b4}
+  .sess{font-size:11px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin:4px 0 6px 56px}
+
+  /* io strip */
+  .io{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap}
+  .io .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;flex:1;min-width:180px}
+  .io .box .lbl{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .io .box .val{font-size:14px;color:var(--ink)}
+  .io .arrow{display:flex;align-items:center;color:var(--dim);font-size:24px}
+
+  /* two col */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .col.moat{border-top:3px solid var(--green)}
+  .col.done{border-top:3px solid var(--gray)}
+  .col h3{margin:0 0 12px;font-size:15px}
+  .col ul{margin:0;padding-left:18px}
+  .col li{margin-bottom:9px;font-size:14px;color:var(--sub)}
+  .col li b{color:var(--ink)}
+
+  /* clarify */
+  .q{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--purple);
+    border-radius:8px;padding:13px 16px;margin-bottom:11px}
+  .q .qt{font-weight:600;font-size:14px;margin-bottom:3px}
+  .q .qd{color:var(--sub);font-size:13px}
+
+  /* reco */
+  .reco{background:linear-gradient(135deg,#1a1f2e,#191c23);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .reco .verdict{font-size:15px;font-weight:600;margin-bottom:16px;color:#8fe0b4;line-height:1.7}
+  .pri{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+  .pri .rank{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:14px;color:#0f1115}
+  .pri .body .pt{font-weight:600;font-size:14px}
+  .pri .body .pd{color:var(--sub);font-size:13px}
+  .avoid{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--sub);font-size:13px}
+  .avoid b{color:var(--ink)}
+  @media(max-width:680px){.cols{grid-template-columns:1fr}.sess{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>磊哥 · 达人 IP 工作流梳理 <span style="font-size:16px;color:var(--dim)">v2</span></h1>
+  <p class="lead">给工厂老板 / 线下实体店老板做真人出镜短视频，靠「晒过程 · 讲人和业务」建立信任感</p>
+  <p class="meta">v2 已按磊哥补充修正：至少两场（了解 + 拍摄分开）· 剪辑已外包 · 发布老板自理 · 磊哥基本单干</p>
+
+  <div class="pos">
+    <div class="big">磊哥 = 操盘手 + 编导，几乎单干，能外包的外包。<br>真正的瓶颈在<span style="color:#9cc2ff">前半段（了解 + 设计 + 当编导）</span>，全靠他一个人。</div>
+    <span class="tag">≈ 30 条 / 月 / 客户</span>
+    <span class="tag">抖音 · 视频号</span>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot" style="background:#4c8dff"></span>磊哥亲自干（瓶颈）</span>
+    <span><span class="dot" style="background:#f6a623"></span>已外包（不是痛点）</span>
+    <span><span class="dot" style="background:#38c793"></span>客户自理（不是痛点）</span>
+  </div>
+
+  <h2>一、核心工作流（至少两场 + 5 个环节）</h2>
+
+  <div class="sess">第一场 · 深度访谈（纯了解）</div>
+  <div class="flow">
+
+    <div class="step">
+      <div class="rail"><div class="num" style="background:var(--blue)">1</div><div class="bar"></div></div>
+      <div class="card">
+        <div class="t">深访了解 IP<span class="who self">磊哥亲自</span></div>
+        <div class="d">访谈老板，拆两块：<b>业务</b>（客户为什么买你不买别人 → 翻译成白话、提炼卖点）+ <b>人</b>（来时路、高光时刻、好故事）。用 get 笔记 /「得到大脑」实时录音，音频自动总结成文档。</div>
+        <div class="row">
+          <span class="k core">核心价值 · 难替代</span>
+          <span class="k tool">工具：get 笔记（录音转写已够用）</span>
+          <span class="k out">产出：客户理解文档</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sess">场间 · 回去设计策划</div>
+  <div class="flow">
+    <div class="step">
+      <div class="rail"><div class="num" style="background:var(--blue)">2</div><div class="bar"></div></div>
+      <div class="card">
+        <div class="t">梳理 + AI 打磨 → 出问题清单/方案<span class="who self">磊哥亲自</span></div>
+        <div class="d">磊哥梳理文档，交给豆包 / AI + 大数据，判断哪些问答<b>更有差异化、更有卖点、更吸引人</b>，定出正式拍摄要问的问题清单和策划方案（和老板对一遍）。</div>
+        <div class="row">
+          <span class="k core">核心价值 · 磊哥的编导判断</span>
+          <span class="k tool">工具：豆包 / AI</span>
+          <span class="k out">产出：拍摄问题清单 + 策划方案</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sess">第二场 · 正式拍摄（准备充分）</div>
+  <div class="flow">
+    <div class="step">
+      <div class="rail"><div class="num" style="background:var(--blue)">3</div><div class="bar"></div></div>
+      <div class="card">
+        <div class="t">搭布景 · 集中录制<span class="who self">磊哥当编导</span></div>
+        <div class="d">带着设计好的问题、布景准备就绪，老板出镜集中回答（如一批 30 个问题）。俩人访谈形式，<b>磊哥不出镜</b>，只提问。</div>
+        <div class="row">
+          <span class="k core">磊哥亲自当编导</span>
+          <span class="k out">产出：原始访谈视频素材</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sess">后期 · 已外包 / 客户自理</div>
+  <div class="flow">
+    <div class="step">
+      <div class="rail"><div class="num" style="background:var(--amber)">4</div><div class="bar"></div></div>
+      <div class="card">
+        <div class="t">剪辑成片<span class="who out">外包团队</span></div>
+        <div class="d">剪掉磊哥的提问，把老板回答的过程剪出来 = 成片，问题做成标题核心。约 30 条。</div>
+        <div class="row"><span class="k ok">✅ 已外包 · 不是痛点</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="rail"><div class="num" style="background:var(--green)">5</div></div>
+      <div class="card">
+        <div class="t">发布分发<span class="who client">老板自己</span></div>
+        <div class="d">30 条够发一个月，老板自己慢慢发抖音 + 视频号。有需要再约下一轮。</div>
+        <div class="row"><span class="k ok">✅ 客户自理 · 不是痛点</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>二、输入 → 输出</h2>
+  <div class="io">
+    <div class="box"><div class="lbl">输入</div><div class="val">一个老板（业务 + 个人故事），通过深访采集</div></div>
+    <div class="arrow">→</div>
+    <div class="box"><div class="lbl">磊哥亲自产出的核心</div><div class="val">客户理解 + 问题清单/策划 + 拍摄执行</div></div>
+    <div class="arrow">→</div>
+    <div class="box"><div class="lbl">最终交付</div><div class="val">≈ 30 条/月 真人出镜信任感短视频</div></div>
+  </div>
+
+  <h2>三、瓶颈定位（这版最重要的变化）</h2>
+  <div class="cols">
+    <div class="col moat">
+      <h3>🔵 磊哥一个人扛的部分 = 瓶颈 + 护城河</h3>
+      <ul>
+        <li><b>深访了解</b>——问什么、怎么问出高光和卖点</li>
+        <li><b>设计策划</b>——把「为什么买你」翻译成白话，定问题清单</li>
+        <li><b>拍摄当编导</b>——现场引导老板</li>
+        <li style="color:var(--ink)">👉 这三件事既是他的<b>独家价值</b>，也是他<b>单干产能的天花板</b></li>
+      </ul>
+    </div>
+    <div class="col done">
+      <h3>⚪ 已经不用操心的部分</h3>
+      <ul>
+        <li><b>剪辑</b>——外包团队干，不是痛点</li>
+        <li><b>发布</b>——老板自己慢慢发，不是痛点</li>
+        <li><b>转写</b>——get 笔记已覆盖，够用</li>
+        <li style="color:var(--ink)">👉 所以工具<b>别再往后半段砸</b>，那里没有杠杆</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>四、我的判断：工具往哪使劲</h2>
+  <div class="reco">
+    <div class="verdict">你的瓶颈是「你自己」——一个人扛前半段。所以提效方向不是买硬件、不是搞剪辑/分发工具，而是让「了解 + 设计」这两件亲自干的事<b>更快、能沉淀、可复用</b>，把你从重复劳动里省出来，去带更多客户或做得更深。</div>
+
+    <div class="pri">
+      <div class="rank" style="background:var(--green)">1</div>
+      <div class="body"><div class="pt">访谈框架模版（最轻，立刻能用）</div>
+      <div class="pd">把「拆业务 + 拆人」固化成一套标准提问结构，每个新客户直接套，不用每次从零想。飞书/Notion 文档级别就够。</div></div>
+    </div>
+    <div class="pri">
+      <div class="rank" style="background:var(--blue)">2</div>
+      <div class="body"><div class="pt">客户语料库 / 知识库（让理解「攒起来」）</div>
+      <div class="pd">每个老板的金句、故事、卖点、已问过的问题都沉淀下来。下一轮直接调用，不用重头理解——这是你单干还能扩客户的关键。</div></div>
+    </div>
+    <div class="pri">
+      <div class="rank" style="background:var(--purple)">3</div>
+      <div class="body"><div class="pt">把「豆包优化问题」固化成一个可复用 AI 流程</div>
+      <div class="pd">你现在已经在用豆包做问题优化，把它做成一个固定提示词/自定义智能体：输入访谈文档 → 输出优选问题清单，稳定复用。</div></div>
+    </div>
+
+    <div class="avoid">
+      <b>关于你说的「录音硬件 + 智能体」，这版校准一下：</b><br>
+      • <b>硬件本身还是先别买</b>——采集不是你的瓶颈，get 笔记已经够。<br>
+      • 但「<b>越来越懂每个客户的智能体</b>」这个方向，比我上一版说的更有道理——因为你单干、瓶颈就在「你脑子里对客户的理解」。价值不在「脖子挂个东西采集」，而在<b>记忆和沉淀层</b>。<br>
+      • <b>正确顺序</b>：先用上面 ①②③ 把语料和流程用文档/轻工具攒起来，等客户数量多到你记不过来、模版也稳定了，再把它升级成智能体——那时候投入产出才划算，也才有足够素材喂它。
+    </div>
+  </div>
+
+  <h2>五、还想跟磊哥确认的（剩不多了）</h2>
+  <div class="q"><div class="qt">1. 你现在一个人最多能同时带几个客户？</div><div class="qd">这决定「沉淀/工具」值不值得投——如果已经接不过来了，②客户语料库就很急；如果还有余量，①模版先行即可。</div></div>
+  <div class="q"><div class="qt">2. 正式拍那场，是一次把 30 个问题录完，还是分几次补？</div><div class="qd">影响你「设计问题清单」要一次备多全。</div></div>
+  <div class="q"><div class="qt">3. 复购节奏——一轮做完，老板一般多久回来下一轮？</div><div class="qd">决定语料库是「一次性用完」还是「长期资产」，直接影响②该做多重。</div></div>
+
+</div>
+</body>
+</html>
